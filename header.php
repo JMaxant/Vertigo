@@ -70,6 +70,8 @@
 			 ?>
   		</div>
 	</nav>
+</header>
+<section>
 	<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
 	  <!-- Wrapper for slides -->
 	  <div class="carousel-inner" role="listbox">
@@ -97,4 +99,5 @@
 	    <span class="sr-only">Next</span>
 	  </a>
 	</div>
-</header>
+</section>
+
