@@ -1,13 +1,11 @@
 /*
 Theme Name: Vertigo
-Author: Frédéric Joubrel, Steven Luu, Julien Maxant, Thierry Nativel
+Author: Julien, Thierry, Steven et Fred
 Author URI:
 Description: thème créé pour la Compagnie de théâtre rennaise Vertigo
 Version: 1.0
 Text Domain: Vertigo
 */
-
-
 *{
   padding: 0;
   margin: 0;
@@ -17,10 +15,22 @@ body{
   position: relative;
   font-family: "Roboto";
   font-size: 0.62em;
-
 }
+header{
+	position: fixed;
+	top: 0;
+	z-index: 1500;
+	width: 100%;
+}
+header>nav{
+	background:rgba(0,0,0,.3);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
 .navbar{
-  background: rgba(0,0,0,0.2);
   border-radius: 0;
   margin-bottom: 0;
   top: 0;
@@ -35,8 +45,9 @@ body{
 }
 .navbar a{
   color: #fff;
+   text-transform: uppercase;
 }
-.nav>li:after{
+.nav>li:not(:first-of-type):after{
   content: "|";
   position: absolute;
   top: 50%;
@@ -67,39 +78,12 @@ body{
 .navbar-toggle .icon-bar{
   background: #009999;
 }
-#carousel{
-  width: 100%;
-  background: black;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-}
-.carousel-fade .carousel-inner .item {
-  opacity: 0;
-  height: 100vh;
-  transition: opacity 0.8s ease-in-out;
-  transition-property: opacity;
-}
-.carousel-fade .carousel-inner .active {
-  opacity: 1;
-}
-.carousel-fade .carousel-inner .active.left,
-.carousel-fade .carousel-inner .active.right {
-  left: 0;
-  opacity: 0;
-  z-index: 1;
-}
-.carousel-fade .carousel-inner .next.left,
-.carousel-fade .carousel-inner .prev.right {
-  opacity: 1;
-}
-.carousel-fade .carousel-control {
-  z-index: 3;
-  transition: all 1s ease-in-out;
-}
 .glyphicon-menu-left, .glyphicon-menu-right{
   top: 50%;
   transform: translate(0,-50%);
   font-size: 25px;
+}
+.carousel-inner{
+	background: #000;
+	max-height: 100vh;
 }
