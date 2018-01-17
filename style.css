@@ -6,6 +6,87 @@ Description: thème créé pour la Compagnie de théâtre rennaise Vertigo
 Version: 1.0
 Text Domain: Vertigo
 */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  position: relative;
+  font-family: "Roboto";
+  font-size: 0.62em;
+}
+header{
+	position: fixed;
+	top: 0;
+	z-index: 1500;
+	width: 100%;
+}
+header>nav{
+	background:rgba(0,0,0,.3);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.navbar{
+  border-radius: 0;
+  margin-bottom: 0;
+  top: 0;
+  left: 0;
+  font-size: 2.5em;
+  z-index: 3;
+  max-height: 50px;
+}
+.navbar-brand{
+  padding: 5px 20px;
+  height: 50px;
+}
+.navbar a{
+  color: #fff;
+   text-transform: uppercase;
+}
+.nav>li:not(:first-of-type):after{
+  content: "|";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+.navbar a:hover{
+  color: #009999;
+  transition: color 0.2s ease-in-out;
+}
+.nav li a:focus, .nav li a:hover{
+  background: transparent;
+}
+.nav .open a{
+  color: white;
+  background: transparent;
+}
+.nav .open a:focus, .nav .open a:hover{
+  background: transparent ;
+  color: #009999;
+}
+.dropdown-menu{
+  background: black;
+}
+.navbar-toggle{
+  background: rgba(20,20,20,0.5);
+}
+.navbar-toggle .icon-bar{
+  background: #009999;
+}
+.glyphicon-menu-left, .glyphicon-menu-right{
+  top: 50%;
+  transform: translate(0,-50%);
+  font-size: 25px;
+}
+.carousel-inner{
+	background: #000;
+	max-height: 100vh;
+}
 #nous{
     padding: 0 10%;
     font-family: 'roboto',Arial,sans-serif;
