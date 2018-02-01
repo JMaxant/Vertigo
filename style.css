@@ -11,10 +11,29 @@ Text Domain: Vertigo
   margin: 0;
   box-sizing: border-box;
 }
+
+/**********SLIDER FADE*********/
+.carousel-fade .carousel-inner .item {
+  	-webkit-transition-property: opacity;
+  	transition-property: opacity;
+}
+.carousel-fade .carousel-inner .item, .carousel-fade .carousel-inner .active.left, .carousel-fade .carousel-inner .active.right {
+  	opacity: 0;
+}
+.carousel-fade .carousel-inner .active, .carousel-fade .carousel-inner .next.left, .carousel-fade .carousel-inner .prev.right {
+  	opacity: 1;
+}
+.carousel-fade .carousel-inner .next, .carousel-fade .carousel-inner .prev, .carousel-fade .carousel-inner .active.left, .carousel-fade .carousel-inner .active.right {
+  	left: 0;
+  	-webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-control{
+  	z-index: 2;
+}
+/*FIN SLIDER*/
 body{
-  position: relative;
-  font-family: "Roboto";
-  font-size: 0.62em;
+	  font-family: "Roboto";
 }
 header{
 	position: fixed;
@@ -27,118 +46,60 @@ header>nav{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	flex-direction: row;
 }
-
 .navbar{
-  border-radius: 0;
-  margin-bottom: 0;
-  top: 0;
-  left: 0;
-  font-size: 2.5em;
-  z-index: 3;
-  max-height: 50px;
+  	margin-bottom: 0;
+  	top: 0;
+  	left: 0;
+  	font-size: 2.5em;
+  	z-index: 3;
+  	max-height: 50px;
 }
 .navbar-brand{
-  padding: 5px 20px;
-  height: 50px;
+  	padding: 5px 20px;
+  	height: 50px;
 }
 .navbar a{
-  color: #fff;
-   text-transform: uppercase;
+  	color: #fff;
+   	text-transform: uppercase;
 }
 .nav>li:not(:first-of-type):after{
-  content: "|";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
+  	content: "|";
+  	position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	color: #fff;
 }
 .navbar a:hover{
-  color: #009999;
-  transition: color 0.2s ease-in-out;
+  	color: #009999;
+  	transition: color 0.2s ease-in-out;
 }
 .nav li a:focus, .nav li a:hover{
-  background: transparent;
+  	background: transparent;
 }
 .nav .open a{
-  color: white;
-  background: transparent;
+  	color: white;
+  	background: transparent;
 }
 .nav .open a:focus, .nav .open a:hover{
-  background: transparent ;
-  color: #009999;
+  	background: transparent ;
+  	color: #009999;
 }
 .dropdown-menu{
-  background: black;
+  	background: black;
 }
 .navbar-toggle{
-  background: rgba(20,20,20,0.5);
+  	background: rgba(20,20,20,0.5);
 }
 .navbar-toggle .icon-bar{
-  background: #009999;
+  	background: #009999;
 }
 .glyphicon-menu-left, .glyphicon-menu-right{
-  top: 50%;
-  transform: translate(0,-50%);
-  font-size: 25px;
+  	top: 50%;
+  	transform: translate(0,-50%);
+  	font-size: 25px;
 }
 .carousel-inner{
 	background: #000;
 	max-height: 100vh;
 }
-#nous{
-    padding: 0 10%;
-    font-family: 'roboto',Arial,sans-serif;
-}
-#nous ul li a:hover{
-    background-color: #009999;
-}
-#nous .nav-pills > li > a{
-    color: #000;
-}
-#nous .nav-pills > li.active > a{
-    color: #009999;
-    background-color: #fff;
-}
-#nous div.tab-content{
-    padding: 5%;
-}
-#nous div.tab-content p del{
-    display: block;
-    text-align: center;
-}
-@media screen and (min-width: 420px){
-    #nous div.tab-content p{
-        text-align: justify;
-    }
-    #nous div.tab-content p img.alignright{
-        float: right;
-    }
-}
-@media screen and (min-width: 600px){
-    #nous div.tab-content p img.aligncenter{
-        margin-left: 10%;
-    }
-}
-@media screen and (min-width: 800px){
-    #nous div.tab-content p img.aligncenter{
-        margin-left: 20%;
-    }
-}
-@media screen and (min-width: 1000px){
-    #nous div.tab-content p img.aligncenter{
-        margin-left: 30%;
-    }
-}
-@media screen and (min-width: 1200px){
-    #nous div.tab-content p img.aligncenter{
-        margin-left: 40%;
-    }
-}
-
-
-
-
-
-/******************************************************************************/
