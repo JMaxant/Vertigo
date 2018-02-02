@@ -11,7 +11,6 @@ Text Domain: Vertigo
   margin: 0;
   box-sizing: border-box;
 }
-
 /**********SLIDER FADE*********/
 .carousel-fade .carousel-inner .item {
   	-webkit-transition-property: opacity;
@@ -34,14 +33,15 @@ Text Domain: Vertigo
 /*FIN SLIDER*/
 body{
 	  font-family: "Roboto";
+	  font-size: 0.62em;
 }
-header{
+#nav{
 	position: fixed;
 	top: 0;
 	z-index: 1500;
 	width: 100%;
 }
-header>nav{
+#nav>nav{
 	background:rgba(0,0,0,.3);
 	display: flex;
 	justify-content: space-between;
