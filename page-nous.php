@@ -6,10 +6,10 @@ get_header(); ?>
 <figure>
 	<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' )); ?>
 </figure>
-<header>
-    	<h1><?php the_title(); ?></h1>
-</header>
 <section id="nous" class="container">
+	<header>
+		<h1><?php the_title(); ?></h1>
+	</header>
 	<div class="row">
 	<?php
         $thefields=get_field_objects();
@@ -28,7 +28,7 @@ get_header(); ?>
 			<?php if(!empty($thefields)){
 				$i=0;
 				foreach($thefields as $name => $value) {?>
-			<div class="tab-pane<?php if ($i === 0) {echo " "."active"; } ?>" id="<?php echo $name ?>" role="tabpanel">
+			<div class="tab-pane <?php if ($i === 0) {echo "active"; } ?>" id="<?php echo $name ?>" role="tabpanel">
 				<article>
 					<?php echo $value[value]; ?>
 				</article>
