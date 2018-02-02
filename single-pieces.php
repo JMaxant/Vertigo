@@ -7,10 +7,10 @@ get_header(); ?>
 <figure>
 	<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' )); ?>
 </figure>
-<header>
-    	<h1><?php the_title(); ?></h1>
-</header>
 <section id="pieces" class="container">
+	<header>
+		<h1><?php the_title(); ?></h1>
+	</header>
 	<div class="row">
 	<?php
         $thefields=get_field_objects();
