@@ -4,7 +4,7 @@ Template Name: Spectacles
 */
 ?>
 <?php get_header(); ?>
-<div class="container">
+<section id="spectacles class="container">
     	<div class="row">
         <?php
         $pieces = new WP_Query(array(
@@ -24,6 +24,6 @@ Template Name: Spectacles
         <?php endwhile;?>
 <?php endif; ?>
     	</div>
-</div>
+</section>
 
 <?php get_footer();?>
