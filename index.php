@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+<section id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
   <!-- Wrapper for slides -->
   	<div class="carousel-inner" role="listbox">
 		<?php
@@ -31,6 +31,6 @@ get_header();
   	<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
     		<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
     		<span class="sr-only">Next</span>
-	  </a>
-</div>
+	</a>
+</section>
 <?php get_footer(); ?>
