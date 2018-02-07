@@ -4,16 +4,16 @@ Template Name: Spectacles
 */
 ?>
 <?php get_header(); ?>
-<section id="spectacles class="container">
-    	<div class="row">
+<section id="spectacles"  class="container">
+    	<div class="row grid">
         <?php
         $pieces = new WP_Query(array(
             	'post_type' => 'pieces',
         ));
         if($pieces->have_posts()):?>
         <?php while($pieces->have_posts()): $pieces->the_post();?>
-    		<figure class="col-sm-4">
-			<a href="<?php the_permalink();?>" ><?php the_post_thumbnail('medium');?></a>
+    		<figure class=" effect-julia col-sm-4">
+			<a href="<?php the_permalink();?>" ><?php the_post_thumbnail('thumbSpectacles');?></a>
 			<figcaption>
 				<h2><?php the_title(); ?></h2>
 				<p><?php the_excerpt(); ?>
