@@ -26,5 +26,5 @@ get_header(); ?>
      </div>
 </section>
 
-<?php // var_dump($image) ?>
+<?php ?>
 <?php get_footer(); ?>
