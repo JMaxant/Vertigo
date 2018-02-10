@@ -7,9 +7,7 @@ define('GV_VERSION','1.0.0');
 function gv_scripts(){
 // CHARGEMENT CSS
 	wp_enqueue_style('gv_bootstrap-core', get_template_directory_uri() . '/css/bootstrap.min.css', array(), GV_VERSION, 'all' );
-	wp_enqueue_style('gv_custom', get_template_directory_uri() . '/style.css', array('gv_bootstrap-core'), GV_VERSION, 'all' );
-
-
+	wp_enqueue_style('gv_custom', get_template_directory_uri() . '/style.css', array('gv_bootstrap-core'), GV_VERSION, 'all' );	
 // CHARGEMENT JS
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'), GV_VERSION, true);
 	wp_enqueue_script('gv_custom_js', get_template_directory_uri().'/js/gv_script.js', array('jquery', 'bootstrap-js'), GV_VERSION, true);
@@ -88,25 +86,17 @@ function wpm_custom_post_type() {
 		'not_found_in_trash'  => __( 'Non trouvée dans la corbeille'),
 	);
 
-	// On peut définir ici d'autres options pour notre custom post type
-
 	$args = array(
 		'label'               => __( 'Pièces'),
 		'description'         => __( 'Tous sur nos pièces'),
 		'labels'              => $labels,
-		// On définit les options disponibles dans l'éditeur de notre custom post type ( un titre, un auteur...)
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-		/*
-		* Différentes options supplémentaires
-		*/
 		'hierarchical'        => false,
 		'public'              => true,
 		'has_archive'         => true,
 		'rewrite'			  => array( 'slug' => 'pieces'),
 
 	);
-
-	// On enregistre notre custom post type qu'on nomme ici "serietv" et ses arguments
 	register_post_type( 'pieces', $args );
 
 }
