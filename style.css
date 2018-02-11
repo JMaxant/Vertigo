@@ -1,4 +1,4 @@
-/*
+﻿/*
 Theme Name: Vertigo
 Author: Julien, Thierry, Steven et Fred
 Author URI:
@@ -6,12 +6,19 @@ Description: thème créé pour la Compagnie de théâtre rennaise Vertigo
 Version: 1.0
 Text Domain: Vertigo
 */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 /**********SLIDER FADE*********/
+
+#carousel{
+  position: absolute;
+  top:0;
+}
+
 .carousel-fade .carousel-inner .item {
   	-webkit-transition-property: opacity;
   	transition-property: opacity;
@@ -30,70 +37,6 @@ Text Domain: Vertigo
 .carousel-fade .carousel-control{
   	z-index: 2;
 }
-/*FIN SLIDER*/
-body{
-	  font-family: "Roboto";
-	  font-size: 0.62em;
-}
-#nav{
-	position: fixed;
-	top: 0;
-	z-index: 1500;
-	width: 100%;
-}
-#nav>nav{
-	background:rgba(0,0,0,.3);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-.navbar{
-  	margin-bottom: 0;
-  	top: 0;
-  	left: 0;
-  	font-size: 2.5em;
-  	z-index: 3;
-  	max-height: 50px;
-}
-.navbar-brand{
-  	padding: 5px 20px;
-  	height: 50px;
-}
-.navbar a{
-  	color: #fff;
-   	text-transform: uppercase;
-}
-.nav>li:not(:first-of-type):after{
-  	content: "|";
-  	position: absolute;
-  	top: 50%;
-  	transform: translateY(-50%);
-  	color: #fff;
-}
-.navbar a:hover{
-  	color: #009999;
-  	transition: color 0.2s ease-in-out;
-}
-.nav li a:focus, .nav li a:hover{
-  	background: transparent;
-}
-.nav .open a{
-  	color: white;
-  	background: transparent;
-}
-.nav .open a:focus, .nav .open a:hover{
-  	background: transparent ;
-  	color: #009999;
-}
-.dropdown-menu{
-  	background: black;
-}
-.navbar-toggle{
-  	background: rgba(20,20,20,0.5);
-}
-.navbar-toggle .icon-bar{
-  	background: #009999;
-}
 .glyphicon-menu-left, .glyphicon-menu-right{
   	top: 50%;
   	transform: translate(0,-50%);
@@ -102,4 +45,389 @@ body{
 .carousel-inner{
 	background: #000;
 	max-height: 100vh;
+}
+/*FIN SLIDER*/
+html{
+  position:relative !important;
+}
+body{
+	  font-family: "Roboto";
+	  font-size: 0.62em;
+    background:url('assets/paper.png');
+}
+.navbar{
+  background: rgba(0,0,0,0.3);
+  border-radius: 0;
+  margin-bottom: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 2.5em;
+  z-index: 3;
+  box-shadow: 0px -1px 10px black;
+}
+.container-fluid>.navbar-collapse{
+  margin-left:0;
+  background: rgba(0,0,0,0.6);
+}
+.navbar-brand{
+  position: relative;
+  transform:translateY(20px);
+  padding: 0;
+  margin-left: 10px !important;
+  width: 80px;
+  height: 80px;
+}
+.navbar li a{
+  color: #fff;
+  font-size: 1.2em;
+  padding: 0 20px;
+  line-height: 60px;
+}
+.navbar li{
+  /* line-height: 60px !important; */
+  text-transform:uppercase;
+  letter-spacing: 0.3rem;
+}
+.navbar ul{
+    padding-left: 30px;
+}
+.nav>li:not(:first-child):after{
+  content: "";
+  width: 1px;
+  height: 1.5em;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.navbar a:hover{
+  color: #009999;
+  transition: color 0.2s ease-in-out;
+}
+.nav-pills li a:hover{
+  background-color:
+}
+.nav li a:focus, .nav li a:hover{
+  background: transparent;
+}
+.nav .open a{
+  color: white;
+  background: transparent;
+}
+.nav .open a:focus, .nav .open a:hover{
+  background: transparent ;
+  color: #009999;
+}
+.dropdown-menu{
+  background: black;
+}
+.navbar-toggle{
+  background: #000000;
+  position:absolute;
+  border-radius:0;
+  z-index:8;
+  right:0;
+}
+.navbar-toggle .icon-bar{
+  background: #009999;
+}
+header{
+  height:0;
+}
+#content p{
+  font-size: 2em;
+}
+#content ul{
+  font-size: 3em;
+}
+#workshop{
+	font-size: 1em;
+	padding: 0 5%;
+}
+.container h1{
+  padding: 70px 10px 0;
+  text-transform: uppercase;
+  color: #4879d5;
+}
+#workshop img{
+	max-width: 100%;
+}
+#workshop p{
+	padding: 0 30px
+}
+.nav.nav-tabs{
+	font-size: 2.5em;
+	border:none;
+}
+.nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover, .nav-tabs li a{
+	border: 0;
+	background: none;
+}
+.container a{
+	font-size: 1.1em;
+}
+article{
+	padding-top: 50px;
+	font-size: 3em;
+  line-height: 2em;
+}
+iframe{
+	margin: auto;
+	display: block;
+  width: 100%;
+}
+#medias p img{
+	display: inline-block;
+	margin: 0 30px 20px 30px;
+}
+#pieces .container a{
+	font-size:2.3em;
+}
+/********PIECES**********/
+
+#pieces .nav li, #nous .nav li{
+	text-transform:uppercase;
+}
+#pieces li a, #nous li a{
+	color: #4879d5;
+}
+#pieces li a:hover, #nous li a:hover{
+	color: #000000;
+	background:transparent;
+}
+#pieces li a:focus, #nous li a:focus{
+	color: #000000;
+}
+#pieces li:after, #nous li:after{
+	background:#4879d5;
+}
+#pieces h3, #nous h3{
+	color: #4879d5;
+	text-transform:uppercase;
+}
+#pieces p, #nous p{
+	letter-spacing: 0.5px;
+}
+#pieces.container, #nous.container{
+	width:100%;
+}
+#pieces h1{
+	transform:translatey(-100%);
+  background: rgba(0,0,0,0.8);
+  color:#fff;
+  margin:0;
+  padding: 0 0 0 60px;
+}
+#pieces .row{
+  padding: 0 15%;
+  text-align: justify;
+  margin:0;
+}
+#pieces.container{
+  padding:0;
+}
+/********NOUS********/
+#nous div.tab-content{
+  padding: 0 15%;
+}
+#nous p{
+  font-size:3em;
+  line-height: 2em;
+  text-align: justify;
+}
+#myTab{
+  padding: 0 15%;
+}
+#doucet ul{
+  list-style:none;
+}
+#doucet li{
+  font-size:3em;
+}
+/************************ WORKSHOP ********/
+#workshop h1{
+	margin:0;
+	padding: 70px 40px;
+}
+#workshop{
+	text-align:justify;
+}
+
+/*************SPECTACLES*************/
+#spectacles, #pieces, #workshop, #nous{
+  padding-bottom: 50px;
+}
+#a-la-une{
+  padding:0;
+}
+
+/************HOVER SPECTACLES ************/
+
+/* .grid {
+	position: relative;
+	clear: both;
+	margin: 0 auto;
+	padding: 1em 0 4em;
+	max-width: 1000px;
+	list-style: none;
+	text-align: center;
+} */
+
+/* Common style */
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: 10px 1%;
+	background: #3085a3;
+	text-align: center;
+	cursor: pointer;
+  padding:0;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+  width:100%;
+  height:100%;
+	opacity: 0.8;
+}
+
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+.grid figure h2 span {
+	font-weight: bold;
+}
+
+.grid figure h2,
+.grid figure p {
+	margin: 0;
+}
+
+.grid figure p {
+	letter-spacing: 1px;
+	font-size: 1.3em;
+
+}
+/* Media queries */
+@media screen and (max-width: 50em) {
+	.content {
+		padding: 0 10px;
+		text-align: center;
+	}
+	.grid figure {
+		display: inline-block;
+		float: none;
+		margin: 10px auto;
+		width: 100%;
+	}
+}
+figure.effect-julia {
+	background: #000;
+  width: inherit;
+}
+
+figure.effect-julia img {
+	-webkit-transition: opacity 1s, -webkit-transform 1s;
+	transition: opacity 1s, transform 1s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+figure.effect-julia figcaption {
+	text-align: left;
+}
+
+figure.effect-julia h2 {
+  position: absolute;
+  padding: 5px 10px 5px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.25);
+}
+
+figure.effect-julia p {
+	display: inline-block;
+	padding: 1.5em 1.5em;
+	background: rgba(255,255,255,0.05);
+	color: #fff;
+	text-transform: none;
+	font-size: 2.1em;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-360px,0,0);
+	transform: translate3d(-360px,0,0);
+}
+figure.effect-julia:hover p {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+  opacity: 1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+figure.effect-julia:hover img {
+	opacity: 0.3;
+}
+/*********************FOOTER ****************************/
+footer.container{
+  background: #323232;
+  width:100%;
+}
+#footer-title{
+  padding:0 !important;
+  margin:0 !important;
+  text-align: center;
+  color:#000;
+  text-transform: uppercase;
+}
+footer nav ul{
+  display: flex;
+  justify-content: center;
+  font-size:2em;
+  text-transform: uppercase;
+}
+footer nav ul li{
+  padding: 0 30px;
+  list-style: none;
+}
+footer nav ul li a{
+    color:#fff;
+    text-transform: uppercase;
+    text-decoration:none;
 }
