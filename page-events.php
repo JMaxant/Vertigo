@@ -26,15 +26,15 @@ Template Name: Events
 				$ligne.='<th>Lieu</th>';
 				$ligne.='<th>Ville</th>';
 				foreach($events as $name) {
-			                $ligne.='<tr>';
-			                $ligne.='<td>'.$date=formatDate($name->event_start_date).'<br/><em>'.$attr=$name->event_attributes["Statut"].'</em></td>';
-					$ligne.='<td>'.$heure=$name->event_start_time.'</td>';
-			                $ligne.='<td>'.$nom=$name->event_name.'</td>';
-			                $lieu=new EM_Location($name->location_id);
-			                $ligne.='<td><a href="'.$lieu->location_attribute['url'].'">'.$lieu->location_name.'</a><br/>'.$lieu->location_address.'</td>';
+	                    $ligne.='<tr>';
+	                    $ligne.='<td>'.formatDate($name->event_start_date).'<br/><em>'.$name->event_attributes["Statut"].'</em></td>';
+					$ligne.='<td>De '.formatHeure($name->event_start_time).' à '.formatHeure($name->event_end_time).'</td>';
+	                    $ligne.='<td>'.$name->event_name.'</td>';
+	                    $lieu=new EM_Location($name->location_id);
+	                    $ligne.='<td><a href="http://'.$lieu->location_attributes['url'].'">'.$lieu->location_name.'</a><br/>'.$lieu->location_address.'</td>';
 					$ligne.='<td>'.$lieu->location_town.'</td>';
-			                $ligne.='</tr>';
-	               		};
+	                    $ligne.='</tr>';
+	               };
 				$ligne.='</table>';
 				$ligne.='</article>';
 				echo $ligne;
