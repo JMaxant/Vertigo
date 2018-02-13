@@ -17,7 +17,8 @@ get_header(); ?>
 	if(!empty ($thefields)) { ?>
 		<ul class="nav nav-tabs">
 		<?php $i=0;
-		foreach($thefields as $name => $value) { ?>
+		foreach($thefields as $name => $value) {
+			if(!empty($value[value])) {?>
 			<li <?php if ($i === 0) {echo 'class="active"' ;} ?> >
 				<a href="#<?php echo $name ?>" data-toggle="tab"><?php echo $value[label]; ?></a>
 			</li>
@@ -26,16 +27,44 @@ get_header(); ?>
 		} ?>
 		</ul>
 		<div class="tab-content">
-			<?php if(!empty($thefields)){
-				$i=0;
-				foreach($thefields as $name => $value) {?>
+			<?php $i=0;
+				foreach($thefields as $name => $value) {
+					if(!empty($value['value'])){ ?>
 			<div class="tab-pane<?php if ($i === 0) {echo " "."active"; } ?>" id="<?php echo $name ?>" role="tabpanel">
 				<article>
-					<?php echo $value[value]; ?>
+						<?php if(is_array($value[value])){
+							if(have_rows($name)){
+								while(have_rows($name)){
+									the_row();
+									the_sub_field('videos');
+									$img=get_sub_field('img');
+									if(count($img) > 3 ){ ?>
+										<div class="carousel-pieces">
+											<?php foreach($img as $slide) {
+												$size='medium';
+												$image=wp_get_attachment_image($slide['id'], $size);?>
+												<figure>
+													<?php echo $image; ?>
+												</figure>
+											 <?php  }?>
+										</div>
+								<?php	} else {
+										foreach($img as $image){  ?>
+											<figure>
+												<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>" />
+											</figure>
+									<?php	}
+									}
+								}
+							} 					 
+					} else {
+						echo $value[value];
+					  	}?>
 				</article>
 			</div>
 			<?php
 			$i ++;
+				};  //fin if(!empty($value['value']))
 			};  	 // fin foreach
  		}; //FIN if(!empty)?>
 		</div>
