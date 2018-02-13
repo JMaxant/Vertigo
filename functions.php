@@ -15,13 +15,16 @@ function gv_scripts(){
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'), GV_VERSION, true);
 	wp_enqueue_script('gv_custom_js', get_template_directory_uri().'/js/gv_script.js', array('jquery', 'bootstrap-js'), GV_VERSION, true);
 	wp_enqueue_script('gv_slick', get_template_directory_uri().'/js/slick.min.js', array('jquery'), GV_VERSION, true);
-} //Fin fonction gv_scripts
+} 
+//Fin fonction gv_scripts
 
 
 add_action('wp_enqueue_scripts', 'gv_scripts');
 /***********TAILLE D'IMAGES PERSONALISEES************************/
+if(function_exists(add_image_size)){
 	add_image_size( 'thumbSpectacles', 400, 400, true); /* Taille personalisées pour les vignettes page_spectacles*/
 	add_image_size( 'headerPieces', 1920, 930, true); /* Taille personalisées pour les vignettes single_pièces */
+}
 /************SETUP UTILITAIRES****************/
 
 function gv_setup(){
