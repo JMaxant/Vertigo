@@ -7,13 +7,16 @@ define('GV_VERSION','1.0.0');
 function gv_scripts(){
 // CHARGEMENT CSS
 	wp_enqueue_style('gv_bootstrap-core', get_template_directory_uri() . '/css/bootstrap.min.css', array(), GV_VERSION, 'all' );
+	wp_enqueue_style('gv_slick', get_template_directory_uri().'/css/slick.css', array(), GV_VERSION, 'all');
+	wp_enqueue_style('gv_slick-theme', get_template_directory_uri().'/css/slick-theme.css', array(), GV_VERSION, 'all');
 	wp_enqueue_style('gv_custom', get_template_directory_uri() . '/style.css', array('gv_bootstrap-core'), GV_VERSION, 'all' );
-
 
 // CHARGEMENT JS
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'), GV_VERSION, true);
 	wp_enqueue_script('gv_custom_js', get_template_directory_uri().'/js/gv_script.js', array('jquery', 'bootstrap-js'), GV_VERSION, true);
+	wp_enqueue_script('gv_slick', get_template_directory_uri().'/js/slick.min.js', array('jquery'), GV_VERSION, true);
 } //Fin fonction gv_scripts
+
 
 add_action('wp_enqueue_scripts', 'gv_scripts');
 /***********TAILLE D'IMAGES PERSONALISEES************************/
