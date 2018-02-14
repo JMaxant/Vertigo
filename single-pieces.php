@@ -7,10 +7,10 @@ get_header(); ?>
 <figure>
 	<?php the_post_thumbnail( 'headerPieces', array( 'class' => 'img-responsive' )); ?>
 </figure>
-<header>
-    	<h1><?php the_title(); ?></h1>
-</header>
 <section id="pieces" class="container">
+	<header>
+		<h1><?php the_title(); ?></h1>
+	</header>
 	<div class="row">
 	<?php
         $thefields=get_field_objects(); //$thefields récupère toutes les données liées aux champs ACF
@@ -36,7 +36,6 @@ get_header(); ?>
 							if(have_rows($name)){
 								while(have_rows($name)){
 									the_row();
-									the_sub_field('videos');
 									$img=get_sub_field('img');
 									if(count($img) > 3 ){ ?>
 										<div class="carousel-pieces">
@@ -50,6 +49,7 @@ get_header(); ?>
 												</figure>
 											 <?php  }?>
 										</div>
+
 								<?php	} else {
 										foreach($img as $image){  ?>
 											<figure>
@@ -57,6 +57,7 @@ get_header(); ?>
 											</figure>
 									<?php	}
 									}
+									the_sub_field('videos');
 								}
 							}
 						}else if($value[label]==="Dates"){
