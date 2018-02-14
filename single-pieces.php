@@ -13,12 +13,12 @@ get_header(); ?>
 <section id="pieces" class="container">
 	<div class="row">
 	<?php
-        $thefields=get_field_objects();
+        $thefields=get_field_objects(); //$thefields récupère toutes les données liées aux champs ACF
 	if(!empty ($thefields)) { ?>
 		<ul class="nav nav-tabs">
 		<?php $i=0;
 		foreach($thefields as $name => $value) {
-			if(!empty($value[value])) {?>
+			if(!empty($value[value])) { //Créé un tab de navigation avec les infos contenues dans $thefields si le champ n'est pas vide ?>
 			<li <?php if ($i === 0) {echo 'class="active"' ;} ?> >
 				<a href="#<?php echo $name ?>" data-toggle="tab"><?php echo $value[label]; ?></a>
 			</li>
@@ -41,10 +41,12 @@ get_header(); ?>
 									if(count($img) > 3 ){ ?>
 										<div class="carousel-pieces">
 											<?php foreach($img as $slide) {
-												$size='medium';
+												$size='carouselsingle';
 												$image=wp_get_attachment_image($slide['id'], $size);?>
 												<figure>
+													<a class="fancybox image" href=" <?php echo $slide['url']; ?>">
 													<?php echo $image; ?>
+													</a>
 												</figure>
 											 <?php  }?>
 										</div>
@@ -56,9 +58,27 @@ get_header(); ?>
 									<?php	}
 									}
 								}
-							} 					 
-					} else {
-						echo $value[value];
+							}
+						}else if($value[label]==="Dates"){
+							if(class_exists('EM_Events')){
+								$args=array('post_type'=>'events', 'post_status'=>'publish', 'search'=>get_the_title());
+								$events=EM_Events::get($args);
+								$ligne='<table class="col-sm-12">';
+								foreach($events as $event){
+									$ligne.='<tr>';
+							                    $ligne.='<td>'.formatDate($event->event_start_date).'<br/><em>'.$event->event_attributes["Statut"].'</em></td>';
+									$ligne.='<td>'.$event->event_start_time.'</td>';
+							                    $ligne.='<td>'.$event->event_name.'</td>';
+							                    $lieu=new EM_Location($event->location_id);
+							                    $ligne.='<td><a href="'.$lieu->location_attribute['url'].'">'.$lieu->location_name.'</a><br/>'.$lieu->location_address.'</td>';
+									$ligne.='<td>'.$lieu->location_town.'</td>';
+							                    $ligne.='</tr>';
+								}
+								$ligne.="</table>";
+								echo $ligne;
+							}
+						}else{
+							echo $value[value];
 					  	}?>
 				</article>
 			</div>
