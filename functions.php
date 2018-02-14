@@ -15,15 +15,14 @@ function gv_scripts(){
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'), GV_VERSION, true);
 	wp_enqueue_script('gv_custom_js', get_template_directory_uri().'/js/gv_script.js', array('jquery', 'bootstrap-js'), GV_VERSION, true);
 	wp_enqueue_script('gv_slick', get_template_directory_uri().'/js/slick.min.js', array('jquery'), GV_VERSION, true);
-} 
-//Fin fonction gv_scripts
-
+} //Fin fonction gv_scripts
 
 add_action('wp_enqueue_scripts', 'gv_scripts');
 /***********TAILLE D'IMAGES PERSONALISEES************************/
 if(function_exists(add_image_size)){
 	add_image_size( 'thumbSpectacles', 400, 400, true); /* Taille personalisées pour les vignettes page_spectacles*/
 	add_image_size( 'headerPieces', 1920, 930, true); /* Taille personalisées pour les vignettes single_pièces */
+	add_image_size('carouselsingle', 9999, 200, true); /* Taille personnalisée pour les carousels des single pièces = force la hauteur max à 200px */
 }
 /************SETUP UTILITAIRES****************/
 
@@ -41,27 +40,6 @@ function gv_setup(){
 	// ACTIVE LA GESTION DES MENUS
 	register_nav_menus( array( 'primary' => 'Principal', 'secondary' =>'Secondaire', 'footer' =>'Footer'));
 }
-/********************AFFICHAGE DATES + CATEGORIES*********************/
-
-function gv_postMeta($date1, $date2, $cat, $tags){
-	$chaine='publié le <time class="entry-date" datetime="';
-	$chaine.=$date1;
-	$chaine.='">';
-	$chaine.=$date2;
-	$chaine.='</time> dans la catégorie';
-	$chaine.=$cat;
-	$chaine.= ' avec les étiquettes : '.$tags;
-
-	return $chaine;
-}
-add_action('after_setup_theme', 'gv_setup');
-
-/*****************MODIF TEXTE EXCERPTS + READ MORE*****************/
-function gv_ReadMore($more){
-	return '<a class="more-link" href="'.get_permalink().'">'.'En savoir plus'.'</a>';
-}
-add_filter('excerpt_more', 'gv_ReadMore');
-
 /************************FORMATAGE DATE EVENTS MANAGER***********************/
 /*Event Manager sort par défaut les dates en format YYYY/MM/DD, cette fonction a donc pour but de la reformater en JJ-mois-YYYY*/
 function formatDate($date){
