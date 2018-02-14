@@ -40,6 +40,8 @@ function gv_setup(){
 	// ACTIVE LA GESTION DES MENUS
 	register_nav_menus( array( 'primary' => 'Principal', 'secondary' =>'Secondaire', 'footer' =>'Footer'));
 }
+add_action('after_setup_theme', 'gv_setup');
+
 /************************FORMATAGE DATE EVENTS MANAGER***********************/
 /*Event Manager sort par défaut les dates en format YYYY/MM/DD, cette fonction a donc pour but de la reformater en JJ-mois-YYYY*/
 function formatDate($date){
@@ -49,7 +51,6 @@ function formatDate($date){
 	$dateFormatee=$date[2].' '.$moisLettre[($date[1] - 1)].' '.$date[0];
 	return $dateFormatee;
 }
-/************FORMATAGE HEURE EM*************/
 function formatHeure($heure){
 	$heure=explode(':', $heure);
 	$heureFormatee=$heure[0].'h'.$heure[1];
@@ -72,9 +73,6 @@ function wpm_custom_post_type() {
 		'not_found'           => __( 'Non trouvée'),
 		'not_found_in_trash'  => __( 'Non trouvée dans la corbeille'),
 	);
-
-	// On peut définir ici d'autres options pour notre custom post type
-
 	$args = array(
 		'label'               => __( 'Pièces'),
 		'description'         => __( 'Tous sur nos pièces'),
@@ -90,8 +88,6 @@ function wpm_custom_post_type() {
 		'rewrite'			  => array( 'slug' => 'pieces'),
 
 	);
-
-	// On enregistre notre custom post type qu'on nomme ici "serietv" et ses arguments
 	register_post_type( 'pieces', $args );
 
 }
