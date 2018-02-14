@@ -500,7 +500,7 @@
                 {
                     "param": "page_template",
                     "operator": "==",
-                    "value": "page-nous.php"
+                    "value": "nous.php"
                 }
             ]
         ],
@@ -578,7 +578,7 @@
                 "key": "field_5a704877e6539",
                 "label": "Photos\/teaser",
                 "name": "medias",
-                "type": "wysiwyg",
+                "type": "repeater",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -587,18 +587,61 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "delay": 0
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5a8154a479645",
+                        "label": "image",
+                        "name": "img",
+                        "type": "gallery",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "min": "",
+                        "max": "",
+                        "insert": "append",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_5a8154d979646",
+                        "label": "videos",
+                        "name": "videos",
+                        "type": "oembed",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "width": "",
+                        "height": ""
+                    }
+                ]
             },
             {
-                "key": "field_5a708d78d020f",
-                "label": "",
-                "name": "",
-                "type": "text",
-                "instructions": "",
+                "key": "field_5a84432dd54b2",
+                "label": "Dates",
+                "name": "dates",
+                "type": "true_false",
+                "instructions": "Case à cocher pour afficher l'onglet \"Dates\" (si des dates sont enregistrées pour la pièce, elles s'afficheront)",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -606,11 +649,11 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": "",
-                "maxlength": ""
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
             }
         ],
         "location": [
