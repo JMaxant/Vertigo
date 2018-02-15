@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<section id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
   <!-- Wrapper for slides -->
   	<div class="carousel-inner" role="listbox">
 		<?php
@@ -10,8 +10,13 @@ get_header();
 			while(have_rows('slider')):the_row(); // début boucle slider
 				$image=get_sub_field('image');
 				$size='full';
+				$class=['item '];				 // définit la classe attribuée à la div du slider en fonction de $imgSlide
+				if($imgSlide === 0){
+					$class[]='active';
+				}
+				$class=implode(' ', $class);
 					?>
-    		<div class="item <?php if ( $imgSlide ===0 ) { ?>active <?php } ?>">
+    		<div class=" <?php echo $class; ?>">
 					<?php
 					if($image){
 						echo wp_get_attachment_image($image, $size);
@@ -31,6 +36,6 @@ get_header();
   	<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
     		<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
     		<span class="sr-only">Next</span>
-	</a>
-</section>
+	  </a>
+</div>
 <?php get_footer(); ?>
