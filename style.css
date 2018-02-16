@@ -12,7 +12,9 @@ Text Domain: Vertigo
   margin: 0;
   box-sizing: border-box;
 }
-/**********SLIDER FADE*********/
+/************************************************************/
+/**********************SLIDER FADE************************/
+/************************************************************/
 
 #carousel{
   position: absolute;
@@ -46,7 +48,24 @@ Text Domain: Vertigo
 	background: #000;
 	max-height: 100vh;
 }
-/*FIN SLIDER*/
+.glyphicon-menu-left{
+	left:-80px;
+}
+.glyphicon-menu-right{
+	right:-80px;
+}
+.carousel a{
+	transition: all 0.2s ease-in;
+}
+a.left, a.right{
+	opacity:0;
+}
+a.left:hover, a.right:hover{
+	opacity:0.5;
+}
+/***********************************************************/
+/*********************FIN SLIDER**************************/
+/***********************************************************/
 html{
   position:relative !important;
 }
@@ -69,7 +88,7 @@ body{
 }
 .container-fluid>.navbar-collapse{
   margin-left:0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.3);
 }
 .navbar-brand{
   position: relative;
@@ -83,10 +102,9 @@ body{
   color: #fff;
   font-size: 1.2em;
   padding: 0 20px;
-  line-height: 60px;
+  line-height: 80px;
 }
 .navbar li{
-  /* line-height: 60px !important; */
   text-transform:uppercase;
   letter-spacing: 0.3rem;
 }
@@ -106,9 +124,6 @@ body{
   color: #009999;
   transition: color 0.2s ease-in-out;
 }
-.nav-pills li a:hover{
-  background-color:
-}
 .nav li a:focus, .nav li a:hover{
   background: transparent;
 }
@@ -119,6 +134,9 @@ body{
 .nav .open a:focus, .nav .open a:hover{
   background: transparent ;
   color: #009999;
+}
+.navbar li a:focus, .navbar li.active a{
+	color: #009999;
 }
 .dropdown-menu{
   background: black;
@@ -185,7 +203,9 @@ iframe{
 #pieces .container a{
 	font-size:2.3em;
 }
-/********PIECES**********/
+/***********************************************************/
+/********************PIECES*******************************/
+/***********************************************************/
 
 #pieces .nav li, #nous .nav li{
 	text-transform:uppercase;
@@ -197,7 +217,7 @@ iframe{
 	color: #000000;
 	background:transparent;
 }
-#pieces li a:focus, #nous li a:focus{
+#pieces .nav-tabs li.active a, .nav-tabs li.active a{
 	color: #000000;
 }
 #pieces li:after, #nous li:after{
@@ -228,7 +248,9 @@ iframe{
 #pieces.container{
   padding:0;
 }
-/********NOUS********/
+/***********************************************************/
+/*************************NOUS***************************/
+/***********************************************************/
 #nous div.tab-content{
   padding: 0 15%;
 }
@@ -246,7 +268,9 @@ iframe{
 #doucet li{
   font-size:3em;
 }
+/***********************************************************/
 /************************ WORKSHOP ********/
+/***********************************************************/
 #workshop h1{
 	margin:0;
 	padding: 70px 40px;
@@ -254,8 +278,9 @@ iframe{
 #workshop{
 	text-align:justify;
 }
-
+/***********************************************************/
 /*************SPECTACLES*************/
+/***********************************************************/
 #spectacles, #pieces, #workshop, #nous{
   padding-bottom: 50px;
 }
@@ -263,7 +288,9 @@ iframe{
   padding:0;
 }
 
-/************HOVER SPECTACLES ************/
+/***********************************************************/
+/************HOVER SPECTACLES ************************/
+/***********************************************************/
 
 /* .grid {
 	position: relative;
@@ -404,7 +431,9 @@ figure.effect-julia:hover p {
 figure.effect-julia:hover img {
 	opacity: 0.3;
 }
+/***********************************************************/
 /*********************FOOTER ****************************/
+/***********************************************************/
 footer.container{
   background: #323232;
   width:100%;
@@ -430,4 +459,49 @@ footer nav ul li a{
     color:#fff;
     text-transform: uppercase;
     text-decoration:none;
+}
+/***********************************************************/
+/*********************** DATES ***************************/
+/***********************************************************/
+#events{
+	padding: 0 5%;
+}
+
+#events article{
+padding:0 0 50px 0;
+}
+
+#events h2{
+	text-transform:uppercase;
+}
+
+#events tr th{
+	background:#323232;
+	color:#FFF;
+	text-transform:uppercase;
+}
+#events .table tr td{
+	border-top:none !important;
+}
+#events tr{
+  background:#fff;
+}
+#events tr:nth-child(odd){
+	background:#eeeeee;
+}
+#events tr:nth-child(even){
+	background:#fff;
+}
+#events tr td:nth-child(3){
+	text-transform:uppercase;
+}
+#events tr td:nth-child(5){
+	font-weight:bold;
+	text-transform:uppercase;
+}
+#events tr:hover{
+	background: #b1ffff;
+}
+#events a{
+  text-decoration: none;
 }
