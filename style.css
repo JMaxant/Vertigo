@@ -6,7 +6,7 @@ Description: thème créé pour la Compagnie de théâtre rennaise Vertigo
 Version: 1.0
 Text Domain: Vertigo
 */
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900');
 *{
   padding: 0;
   margin: 0;
@@ -49,10 +49,10 @@ Text Domain: Vertigo
 	max-height: 100vh;
 }
 .glyphicon-menu-left{
-	left:-80px;
+	left:-30%;
 }
 .glyphicon-menu-right{
-	right:-80px;
+	right:-30%;
 }
 .carousel a{
 	transition: all 0.2s ease-in;
@@ -74,8 +74,22 @@ body{
 	  font-size: 0.62em;
     background:url('assets/paper.png');
 }
+h1,h2,h3,h4,h5,h6{
+  color: #009999;
+}
+/***********************************************************/
+/********************NAVBAR******************************/
+/***********************************************************/
+
+
+/*********STYLE NAVBAR TEMPLATE SPECTACLES-WORKSHOPS-AGENDA*********/
+/***********************************************************/
+.page-template-page-spectacle #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft{
+	background:rgba(0,0,0,0.85);
+}
+
 .navbar{
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.2);
   border-radius: 0;
   margin-bottom: 0;
   position: absolute;
@@ -83,12 +97,12 @@ body{
   left: 0;
   width: 100%;
   font-size: 2.5em;
-  z-index: 3;
+  z-index: 9;
   box-shadow: 0px -1px 10px black;
 }
 .container-fluid>.navbar-collapse{
   margin-left:0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.5);
 }
 .navbar-brand{
   position: relative;
@@ -145,12 +159,13 @@ body{
   background: #000000;
   position:absolute;
   border-radius:0;
-  z-index:8;
+  z-index:9;
   right:0;
 }
 .navbar-toggle .icon-bar{
   background: #009999;
 }
+
 header{
   height:0;
 }
@@ -167,7 +182,7 @@ header{
 .container h1{
   padding: 70px 10px 0;
   text-transform: uppercase;
-  color: #4879d5;
+  color: #009999;
 }
 #workshop img{
 	max-width: 100%;
@@ -211,34 +226,40 @@ iframe{
 	text-transform:uppercase;
 }
 #pieces li a, #nous li a{
-	color: #4879d5;
+	color: #009999;
+}
+#pieces li:first-child a{
+	padding-left:0;
 }
 #pieces li a:hover, #nous li a:hover{
 	color: #000000;
 	background:transparent;
 }
-#pieces .nav-tabs li.active a, .nav-tabs li.active a{
+#pieces .nav-tabs li.active a, #nous .nav-tabs li.active a{
 	color: #000000;
 }
 #pieces li:after, #nous li:after{
-	background:#4879d5;
+	background:#009999;
 }
 #pieces h3, #nous h3{
-	color: #4879d5;
-	text-transform:uppercase;
+	color: #009999;
 }
 #pieces p, #nous p{
 	letter-spacing: 0.5px;
 }
+#pieces b, #nous b{
+	font-weight:900;
+}
+
 #pieces.container, #nous.container{
 	width:100%;
 }
 #pieces h1{
-	transform:translatey(-100%);
+     transform:translatey(-100%);
   background: rgba(0,0,0,0.8);
   color:#fff;
   margin:0;
-  padding: 0 0 0 60px;
+  padding:0 15%;
 }
 #pieces .row{
   padding: 0 15%;
@@ -251,6 +272,9 @@ iframe{
 /***********************************************************/
 /*************************NOUS***************************/
 /***********************************************************/
+#nous li:first-child a{
+	padding-left:0;
+}
 #nous div.tab-content{
   padding: 0 15%;
 }
@@ -262,11 +286,24 @@ iframe{
 #myTab{
   padding: 0 15%;
 }
-#doucet ul{
-  list-style:none;
+#nous #compagnie img{
+	display:block;
+	margin:auto;
 }
-#doucet li{
-  font-size:3em;
+
+#nous #partenaires img{
+	padding: 10px;
+}
+#nous #partenaires img:last-child{
+	display:block;
+	margin:auto;
+}
+#nous #doucet img{
+	float:left;
+	margin-right:20px;
+}
+#nous #doucet figure{
+	padding-top:30px;
 }
 /***********************************************************/
 /************************ WORKSHOP ********/
@@ -284,6 +321,10 @@ iframe{
 #spectacles, #pieces, #workshop, #nous{
   padding-bottom: 50px;
 }
+#spectacles{
+  padding-top: 100px;
+}
+
 #a-la-une{
   padding:0;
 }
@@ -325,7 +366,7 @@ iframe{
 }
 
 .grid figure figcaption {
-	padding: 2em;
+	padding-top: 2em;
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 1.25em;
@@ -350,7 +391,7 @@ iframe{
 /* Anchor will cover the whole item by default */
 /* For some effects it will show as a button */
 .grid figure figcaption > a {
-	z-index: 1000;
+	z-index: 8;
 	text-indent: 200%;
 	white-space: nowrap;
 	font-size: 0;
@@ -402,16 +443,20 @@ figure.effect-julia figcaption {
 
 figure.effect-julia h2 {
   position: absolute;
+  font-size:3.2em;
+  text-align:center;
+  font-weight:bold;
+  color:#fff;
   padding: 5px 10px 5px;
   width: 100%;
   left: 0;
   bottom: 0;
-  background: rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.5);
 }
 
 figure.effect-julia p {
 	display: inline-block;
-	padding: 1.5em 1.5em;
+	padding-left: 1.5em;
 	background: rgba(255,255,255,0.05);
 	color: #fff;
 	text-transform: none;
