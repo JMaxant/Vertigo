@@ -23,6 +23,8 @@ if(function_exists(add_image_size)){
 	add_image_size( 'thumbSpectacles', 350, 0, true); /* Taille personalisées pour les vignettes page_spectacles*/
 	add_image_size( 'headerPieces', 1920, 900, true); /* Taille personalisées pour les vignettes single_pièces */
 	add_image_size('carouselsingle', 300, 200, true); /* Taille personnalisée pour les carousels des single pièces = force la hauteur max à 200px */
+	add_image_size('thumbNous', 600, 400, true); /* Taille personnalisée pour les images de la page Nous */
+	add_image_size('logoNous', 300, 200, true); /* Taille personnalisée pour les LOGOS Partenaires de la page Nous */
 }
 /************SETUP UTILITAIRES****************/
 
