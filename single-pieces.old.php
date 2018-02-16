@@ -1,8 +1,4 @@
 <?php
-/*
-Template Name: Pièces
-Template Post Type: post, pieces
-*/
 get_header(); ?>
 <figure>
 	<?php the_post_thumbnail( 'headerPieces', array( 'class' => 'img-responsive' )); ?>
