@@ -42,54 +42,62 @@ function gv_setup(){
 }
 add_action('after_setup_theme', 'gv_setup');
 
-/************************FORMATAGE DATE EVENTS MANAGER***********************/
+/************************ EVENTS MANAGER***********************/
 /*Event Manager sort par défaut les dates en format YYYY/MM/DD, cette fonction a donc pour but de la reformater en JJ-mois-YYYY*/
 function formatDate($date){
 	$moisChiffre=['01','02','03','04','05','06','07','08','09','10','11','12'];
-	$moisLettre=['janvier', 'février', 'mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+	$moisLettre=['JAN', 'FEV', 'MAR','AVR','MAI','JUI','JUIL','AOUT','SEPT','OCT','NOV','DEC'];
 	$date=explode('-', $date);
 	$dateFormatee=$date[2].' '.$moisLettre[($date[1] - 1)].' '.$date[0];
 	return $dateFormatee;
 }
+/*Fonction inutilisée : Guillaume ne voulant pas l'affichage des heures des spectacles -> je la laisse au cas où elle viendrait à servir */
 function formatHeure($heure){
 	$heure=explode(':', $heure);
 	$heureFormatee=$heure[0].'h'.$heure[1];
 	return $heureFormatee;
 }
-/*****************CPT******************/
-/*pieces*/
-function wpm_custom_post_type() {
-	$labels = array(
-		'name'                => _x( 'Pièces', 'Post Type General Name'),
-		'singular_name'       => _x( 'Pièce', 'Post Type Singular Name'),
-		'menu_name'           => __( 'Pièces'),
-		'all_items'           => __( 'Toutes les pièces'),
-		'view_item'           => __( 'Voir les pièces'),
-		'add_new_item'        => __( 'Ajouter une nouvelle pièce'),
-		'add_new'             => __( 'Ajouter'),
-		'edit_item'           => __( 'Editer la pièce'),
-		'update_item'         => __( 'Modifier la pièce'),
-		'search_items'        => __( 'Rechercher une pièce'),
-		'not_found'           => __( 'Non trouvée'),
-		'not_found_in_trash'  => __( 'Non trouvée dans la corbeille'),
-	);
-	$args = array(
-		'label'               => __( 'Pièces'),
-		'description'         => __( 'Tous sur nos pièces'),
-		'labels'              => $labels,
-		// On définit les options disponibles dans l'éditeur de notre custom post type ( un titre, un auteur...)
-		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-		/*
-		* Différentes options supplémentaires
-		*/
-		'hierarchical'        => false,
-		'public'              => true,
-		'has_archive'         => true,
-		'rewrite'			  => array( 'slug' => 'pieces'),
+/*Fonction pour la création de tableaux de Dates
+*$args= arguments pour la requête EM_Events
+*$headers= th du tableau
+*$contents= td du tableau
+* $class=argument optionnel pour ajouter les classes au tableau (par défaut table col-sm-12)
+*/
+function gv_tabEvents($args, $headers, $contents, $class='table col-sm-12'){
+	if(class_exists('EM_Events')) {
+		$events=EM_Events::get($args);
+		if(!empty($events)){
+			$tableau='<table class="'.$class.'">';
+			foreach($headers as $header){
+				$tableau.='<th>'.$header.'</th>';
+			}
+			foreach($events as $event){
+				$tableau.='<tr>';
+				foreach($contents as $key => $content){
+					switch ($content) {
+						case event_start_date:
+							$tableau.='<td>'.formatDate($event->$content).'</td>';
+							break;
+						case location_id:
+							$lieu=new EM_Location($event->$content);
+							if(!empty($lieu->location_attribute['url'])){
+								$tableau.='<td><a href="'.$lieu->location_attribute['url'].'">'.mb_strtoupper($lieu->location_name).'</a></td>';
+							}else{
+								$tableau.='<td>'.mb_strtoupper($lieu->location_name).'</td>';
+							}
+							$tableau.='<td>'.mb_strtoupper($lieu->location_town).'</td>';
+							break;
+						default:
+							$tableau.='<td><a href="../'.$event->event_slug.'">'.mb_strtoupper($event->$content).'</a><em><br/>'.$event->event_attributes["Statut"].'</em></td>';
+							break;
+					}
+				}
+				$tableau.='</tr>';
+			}
+			$tableau.='</table>';
+			return $tableau;
+		}
+	}
+};
 
-	);
-	register_post_type( 'pieces', $args );
-
-}
-
-add_action( 'init', 'wpm_custom_post_type', 0 );  ?>
+?>
