@@ -20,8 +20,8 @@ function gv_scripts(){
 add_action('wp_enqueue_scripts', 'gv_scripts');
 /***********TAILLE D'IMAGES PERSONALISEES************************/
 if(function_exists(add_image_size)){
-	add_image_size( 'thumbSpectacles', 400, 400, true); /* Taille personalisées pour les vignettes page_spectacles*/
-	add_image_size( 'headerPieces', 1920, 930, true); /* Taille personalisées pour les vignettes single_pièces */
+	add_image_size( 'thumbSpectacles', 350, 0, true); /* Taille personalisées pour les vignettes page_spectacles*/
+	add_image_size( 'headerPieces', 1920, 900, true); /* Taille personalisées pour les vignettes single_pièces */
 	add_image_size('carouselsingle', 9999, 200, true); /* Taille personnalisée pour les carousels des single pièces = force la hauteur max à 200px */
 }
 /************SETUP UTILITAIRES****************/
