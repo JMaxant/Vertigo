@@ -21,20 +21,31 @@
 
 	<?php wp_head(); ?>
 </head>
-<body>
-<header>
-		<nav>
-  			<?php
-			wp_nav_menu( array(
-				'menu' =>'top-menu',
-				'theme_location' => 'primary',
-				'depth' => 2,
-				'container' => 'div',
-				'container_class' => 'navbar navbar-collapse collapse',
-				'container_id' => 'topLeft',
-				'menu_class' => 'nav navbar-nav navbar-left',
-				'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-				'walker' => new wp_bootstrap_navwalker()
-			));?>
-		</nav>
+<body <?php body_class(); ?>>
+<header id="nav">
+	<nav>
+		<div class="container-fluid">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topLeft" aria-expanded="false" aria-controls="navbar">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+       </div>
+			 <?php if ( function_exists( 'the_custom_logo' ) ) {
+    the_custom_logo(); }
+		wp_nav_menu( array(
+			'menu' =>'top-menu',
+			'theme_location' => 'primary',
+			'depth' => 2,
+			'container' => 'div',
+			'container_class' => 'navbar navbar-collapse collapse',
+			'container_id' => 'topLeft',
+			'menu_class' => 'nav navbar-nav navbar-left',
+			'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+			'walker' => new wp_bootstrap_navwalker()
+		));?>
+		</div>
+	</nav>
 </header>
