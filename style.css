@@ -72,10 +72,25 @@ html{
 body{
 	  font-family: "Roboto";
 	  font-size: 0.62em;
-    background:url('assets/paper.png');
+    background:url('assets/brushed-alum.png');
 }
 h1,h2,h3,h4,h5,h6{
   color: #009999;
+}
+.custom-logo{
+  width:100px;
+  height:80px;
+  position:absolute;
+  z-index:10;
+  top:0;
+  left:55px;
+}
+@media screen and (max-width: 750px) {
+	.custom-logo {
+    position:absolute;
+    right:70px;
+    left:auto;
+	}
 }
 /***********************************************************/
 /********************NAVBAR******************************/
@@ -102,7 +117,6 @@ h1,h2,h3,h4,h5,h6{
 }
 .container-fluid>.navbar-collapse{
   margin-left:0;
-  background: rgba(0,0,0,0.5);
 }
 .navbar-brand{
   position: relative;
@@ -123,7 +137,7 @@ h1,h2,h3,h4,h5,h6{
   letter-spacing: 0.3rem;
 }
 .navbar ul{
-    padding-left: 30px;
+    padding-left: 12%;
 }
 .nav>li:not(:first-child):after{
   content: "";
@@ -159,7 +173,7 @@ h1,h2,h3,h4,h5,h6{
   background: #000000;
   position:absolute;
   border-radius:0;
-  z-index:9;
+  z-index:11;
   right:0;
 }
 .navbar-toggle .icon-bar{
@@ -177,7 +191,7 @@ header{
 }
 #workshop{
 	font-size: 1em;
-	padding: 0 5%;
+	padding: 0 10%;
 }
 .container h1{
   padding: 70px 10px 0;
@@ -266,8 +280,8 @@ iframe{
   text-align: justify;
   margin:0;
 }
-#pieces.container{
-  padding:0;
+#pieces, #workshop, #nous{
+  padding:0 0 50px 0;
 }
 /***********************************************************/
 /*************************NOUS***************************/
@@ -318,11 +332,10 @@ iframe{
 /***********************************************************/
 /*************SPECTACLES*************/
 /***********************************************************/
-#spectacles, #pieces, #workshop, #nous{
-  padding-bottom: 50px;
-}
+
 #spectacles{
   padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 #a-la-une{
@@ -360,7 +373,6 @@ iframe{
 	display: block;
 	min-height: 100%;
 	max-width: 100%;
-  width:100%;
   height:100%;
 	opacity: 0.8;
 }
@@ -483,12 +495,10 @@ footer.container{
   background: #323232;
   width:100%;
 }
-#footer-title{
-  padding:0 !important;
-  margin:0 !important;
-  text-align: center;
-  color:#000;
-  text-transform: uppercase;
+footer img{
+  display:block;
+  margin:auto;
+  padding: 20px 0;
 }
 footer nav ul{
   display: flex;
