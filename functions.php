@@ -73,6 +73,48 @@ function formatHeure($heure){
 	$heureFormatee=$heure[0].'h'.$heure[1];
 	return $heureFormatee;
 }
+/*Fonction pour la création de tableaux de Dates
+*$args= arguments pour la requête EM_Events
+*$headers= th du tableau
+*$contents= td du tableau
+* $class=argument optionnel pour ajouter les classes au tableau (par défaut table col-sm-12)
+*/
+function gv_tabEvents($args, $headers, $contents, $class='table col-sm-12'){
+	if(class_exists('EM_Events')) {
+		$events=EM_Events::get($args);
+		if(!empty($events)){
+			$tableau='<table class="'.$class.'">';
+			foreach($headers as $header){
+				$tableau.='<th>'.$header.'</th>';
+			}
+			foreach($events as $event){
+				$tableau.='<tr>';
+				foreach($contents as $key => $content){
+					switch ($content) {
+						case event_start_date:
+							$tableau.='<td>'.formatDate($event->$content).'</td>';
+							break;
+						case location_id:
+							$lieu=new EM_Location($event->$content);
+							if(!empty($lieu->location_attribute['url'])){
+								$tableau.='<td><a href="'.$lieu->location_attribute['url'].'">'.mb_strtoupper($lieu->location_name).'</a></td>';
+							}else{
+								$tableau.='<td>'.mb_strtoupper($lieu->location_name).'</td>';
+							}
+							$tableau.='<td>'.mb_strtoupper($lieu->location_town).'</td>';
+							break;
+						default:
+							$tableau.='<td><a href="../'.$event->event_slug.'">'.mb_strtoupper($event->$content).'</a><em><br/>'.$event->event_attributes["Statut"].'</em></td>';
+							break;
+					}
+				}
+				$tableau.='</tr>';
+			}
+			$tableau.='</table>';
+			return $tableau;
+		}
+	}
+};
 /*****************CPT******************/
 /*pieces*/
 function wpm_custom_post_type() {
