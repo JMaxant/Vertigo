@@ -29,9 +29,9 @@
 		<div class="tab-content">
 			<?php $i=0;
 				foreach($thefields as $name => $value) {
-					$class=['tab-pane ']; // on définit la classe des div selon le statut de $i
+					$class=['tab-pane fade in ']; // on définit la classe des div selon le statut de $i
 					if($i===0){
-						$class[]='active';
+						$class[]='active ';
 					}
 					$class=implode(' ', $class);
 					if(!empty($value['value'])){ ?>
