@@ -1,4 +1,4 @@
-﻿/*
+/*
 Theme Name: Vertigo
 Author: Julien, Thierry, Steven et Fred
 Author URI:
@@ -11,6 +11,14 @@ Text Domain: Vertigo
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+/*********404************/
+#notFound{
+     font-size: 2.5em;
+     min-height: 72vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }
 /************************************************************/
 /**********************SLIDER FADE************************/
@@ -95,11 +103,9 @@ h1,h2,h3,h4,h5,h6{
 /***********************************************************/
 /********************NAVBAR******************************/
 /***********************************************************/
-
-
 /*********STYLE NAVBAR TEMPLATE SPECTACLES-WORKSHOPS-AGENDA*********/
 /***********************************************************/
-.page-template-page-spectacle #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft{
+.page-template-page-spectacle #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft, .error404 #topLeft{
 	background:rgba(0,0,0,0.85);
 }
 
@@ -282,6 +288,19 @@ iframe{
 }
 #pieces, #workshop, #nous{
   padding:0 0 50px 0;
+}
+/**********CAROUSEL SINGLE************/
+#pieces .slick-arrow{
+     height:80%;
+     transition: 0.5s all ease;
+     width:40px;
+}
+#pieces .slick-arrow:hover{
+     background: rgba(0,0,0,.1);
+     color:#000;
+}
+#pieces .slick-dots{
+     font-size: 2em;
 }
 /***********************************************************/
 /*************************NOUS***************************/
