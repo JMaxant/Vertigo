@@ -4,34 +4,33 @@ Template Name: Nous
 */
 get_header();
 ?>
-<!-- -->
-<section id="nous">
-    <div id="a-la-une">
+<main id="nous" class="container">
+    <figure id="a-la-une">
         <?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'headerPieces', array( 'class' => 'img-responsive') ); } ?>
-        <?php // 'thumbnail', array( 'class' => 'img-responsive attachment-post-thumbnail size-post-thumbnail') ?>
-    </div>
-
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li role="presentation" class="active nav-item">
-            <a href="#compagnie" data-toggle="tab" role="tab" aria-controls="compagnie">La Compagnie</a>
-        </li>
-        <li role="presentation" class="nav-item">
-            <a href="#contacts" data-toggle="tab" role="tab" aria-controls="contacts">Contacts</a>
-        </li>
-        <li role="presentation" class="nav-item">
-            <a href="#suivre" data-toggle="tab" role="tab" aria-controls="suivre">Nous Suivre</a>
-        </li>
-        <li role="presentation" class="nav-item">
-            <a href="#partenaires" data-toggle="tab" role="tab" aria-controls="partenaires">Partenaires</a>
-        </li>
-        <li role="presentation" class="nav-item">
-            <a href="#doucet" data-toggle="tab" role="tab" aria-controls="doucet">Guillaume Doucet</a>
-        </li>
-    </ul>
+   </figure>
+     <nav class="row">
+         <ul class="nav nav-tabs" id="tabNav" role="tablist">
+             <li role="presentation" class="active nav-item">
+                 <a href="#compagnie" data-toggle="tab" role="tab" aria-controls="compagnie">La Compagnie</a>
+             </li>
+             <li role="presentation" class="nav-item">
+                 <a href="#contacts" data-toggle="tab" role="tab" aria-controls="contacts">Contacts</a>
+             </li>
+             <li role="presentation" class="nav-item">
+                 <a href="#suivre" data-toggle="tab" role="tab" aria-controls="suivre">Nous Suivre</a>
+             </li>
+             <li role="presentation" class="nav-item">
+                 <a href="#partenaires" data-toggle="tab" role="tab" aria-controls="partenaires">Partenaires</a>
+             </li>
+             <li role="presentation" class="nav-item">
+                 <a href="#doucet" data-toggle="tab" role="tab" aria-controls="doucet">Guillaume Doucet</a>
+             </li>
+         </ul>
+    </nav>
 
     <!-- Tab panes -->
-    <div class="tab-content">
-        <div class="tab-pane active fade in" id="compagnie" role="tabpanel">
+    <section class="tab-content row">
+        <article class="tab-pane active fade in" id="compagnie" role="tabpanel">
             <?php if( have_rows('compagnie') ):
                 while ( have_rows('compagnie') ) : the_row(); ?>
                     <h2><?php the_sub_field('compagnie_titre'); ?></h2>
@@ -45,8 +44,8 @@ get_header();
                     </figure>
                 <?php endwhile;
             endif; ?>
-        </div>
-        <div class="tab-pane fade in" id="contacts" role="tabpanel">
+        </article>
+        <article class="tab-pane fade in" id="contacts" role="tabpanel">
             <?php if( have_rows('contacts') ):
                 while ( have_rows('contacts') ) : the_row(); ?>
                     <div><?php the_sub_field('contacts_liens'); ?></div>
@@ -59,8 +58,8 @@ get_header();
                     </figure>
                 <?php endwhile;
             endif; ?>
-        </div>
-        <div class="tab-pane fade in" id="suivre" role="tabpanel">
+        </article>
+        <article class="tab-pane fade in" id="suivre" role="tabpanel">
             <?php if( have_rows('suivre') ):
                 while ( have_rows('suivre') ) : the_row(); ?>
                     <div><?php the_sub_field('suivre_liens'); ?></div>
@@ -97,8 +96,8 @@ get_header();
                     </figure>
                 <?php endwhile;
             endif; ?>
-        </div>
-        <div class="tab-pane fade in" id="partenaires" role="tabpanel">
+        </article>
+        <article class="tab-pane fade in" id="partenaires" role="tabpanel">
             <?php if( have_rows('partenaires') ):
                 while ( have_rows('partenaires') ) : the_row(); ?>
                     <div><?php the_sub_field('partenaires_texte'); ?></div>
@@ -127,8 +126,8 @@ get_header();
                     </div>
                 <?php endwhile;
             endif; ?>
-        </div>
-        <div class="tab-pane fade in" id="doucet" role="tabpanel">
+        </article>
+        <article class="tab-pane fade in" id="doucet" role="tabpanel">
             <?php if( have_rows('doucet') ):
                 while ( have_rows('doucet') ) : the_row(); ?>
                     <figure>
@@ -144,9 +143,7 @@ get_header();
                     </div>
                 <?php endwhile;
             endif; ?>
-        </div>
-    </div>
-</section>
-
-<!-- -->
+       </article>
+   </section>
+</main>
 <?php get_footer(); ?>
