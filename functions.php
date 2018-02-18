@@ -13,24 +13,9 @@ function gv_scripts(){
 
 // CHARGEMENT JS
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'), GV_VERSION, true);
-	wp_enqueue_script('gv_custom_js', get_template_directory_uri().'/js/gv_script.js', array('jquery', 'bootstrap-js'), GV_VERSION, true);
 	wp_enqueue_script('gv_slick', get_template_directory_uri().'/js/slick.min.js', array('jquery'), GV_VERSION, true);
+	wp_enqueue_script('gv_custom_js', get_template_directory_uri().'/js/gv_script.js', array('jquery', 'bootstrap-js'), GV_VERSION, true);
 } //Fin fonction gv_scripts
-
-/***************************CUSTOM LOGO*****************************/
-add_theme_support( 'custom-logo' );
-function themename_custom_logo_setup() {
-    $defaults = array(
-        'height'      => 100,
-        'width'       => 400,
-        'flex-height' => true,
-        'flex-width'  => true,
-        'header-text' => array( 'site-title', 'site-description' ),
-    );
-    add_theme_support( 'custom-logo', $defaults );
-}
-add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
-
 
 add_action('wp_enqueue_scripts', 'gv_scripts');
 /***********TAILLE D'IMAGES PERSONALISEES************************/
@@ -42,12 +27,17 @@ if(function_exists(add_image_size)){
 	add_image_size('logoNous', 300, 200, true); /* Taille personnalisée pour les LOGOS Partenaires de la page Nous */
 }
 /************SETUP UTILITAIRES****************/
-
 function gv_setup(){
 	// AJOUT IMAGE A LA UNE
 	add_theme_support('post-thumbnails');
 	// AJOUT BALISE <TITLE>
 	add_theme_support('title-tag');
+	// AJOUT LOGO CUSTOM
+	function gv_custom_logo_setup() {
+		$logoDefaults=array('height' => 100,'width'=>400,'flex-height'=>true,'flex-width'=>true,'header-text'=>array('Le Groupe Vertigo', 'Le Groupe Vertigo, compagnie de théâtre'),
+		);
+		add_theme_support('custom-logo', $logoDefaults);
+	}
 	// RETRAIT N° VERSION WP
 	remove_action('wp_head', 'wp_generator');
 	 // RETRAIT GUILLEMETS A LA FRANCAISE
@@ -63,7 +53,7 @@ add_action('after_setup_theme', 'gv_setup');
 /*Event Manager sort par défaut les dates en format YYYY/MM/DD, cette fonction a donc pour but de la reformater en JJ-mois-YYYY*/
 function formatDate($date){
 	$moisChiffre=['01','02','03','04','05','06','07','08','09','10','11','12'];
-	$moisLettre=['janvier', 'février', 'mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+	$moisLettre=['JAN', 'FEV', 'MAR','AVR','MAI','JUIN','JUIL','AOÛT','SEPT','OCT','NOV','DEC'];
 	$date=explode('-', $date);
 	$dateFormatee=$date[2].' '.$moisLettre[($date[1] - 1)].' '.$date[0];
 	return $dateFormatee;
@@ -77,15 +67,24 @@ function formatHeure($heure){
 *$args= arguments pour la requête EM_Events
 *$headers= th du tableau
 *$contents= td du tableau
-* $class=argument optionnel pour ajouter les classes au tableau (par défaut table col-sm-12)
+*$class=argument optionnel pour ajouter les classes au tableau (par défaut table col-sm-12)
+*$idp=argument optionnel, qui va comparer l'id du post courant à l'id trouvée dans le champ acf lien (qui renvoie de la page Agenda vers la single pièce) pour n'afficher que les posts de cette pièce
 */
-function gv_tabEvents($args, $headers, $contents, $class='table col-sm-12'){
-	if(class_exists('EM_Events')) {
+function gv_tabEvents($args, $headers, $contents, $idp=null, $class='table col-sm-12'){
+	if(class_exists('EM_Events')){
 		$events=EM_Events::get($args);
 		if(!empty($events)){
 			$tableau='<table class="'.$class.'">';
 			foreach($headers as $header){
 				$tableau.='<th>'.$header.'</th>';
+			}
+			if(isset($idp)){
+				foreach($events as $event){
+					if($event->event_attributes['lien']==$idp){
+						$eventsSingle[]=$event;
+					}
+				}
+				$events=$eventsSingle;
 			}
 			foreach($events as $event){
 				$tableau.='<tr>';
@@ -104,8 +103,12 @@ function gv_tabEvents($args, $headers, $contents, $class='table col-sm-12'){
 							$tableau.='<td>'.mb_strtoupper($lieu->location_town).'</td>';
 							break;
 						default:
-							$tableau.='<td><a href="../'.$event->event_slug.'">'.mb_strtoupper($event->$content).'</a><em><br/>'.$event->event_attributes["Statut"].'</em></td>';
+							if(!empty($event->event_attributes['lien'])){
+								$tableau.='<td><a href="'.get_permalink($event->event_attributes['lien']).'"/>'.mb_strtoupper($event->$content).'</a><em><br/>'.$event->event_attributes["Statut"].'</em></td>';
+							}else{
+								$tableau.='<td>'.mb_strtoupper($event->$content).'<em><br/>'.$event->event_attributes["Statut"].'</em></td>';
 							break;
+							}
 					}
 				}
 				$tableau.='</tr>';
@@ -133,8 +136,6 @@ function wpm_custom_post_type() {
 		'not_found_in_trash'  => __( 'Non trouvée dans la corbeille'),
 	);
 
-	// On peut définir ici d'autres options pour notre custom post type
-
 	$args = array(
 		'label'               => __( 'Pièces'),
 		'description'         => __( 'Tous sur nos pièces'),
@@ -150,8 +151,6 @@ function wpm_custom_post_type() {
 		'rewrite'			  => array( 'slug' => 'pieces'),
 
 	);
-
-	// On enregistre notre custom post type qu'on nomme ici "serietv" et ses arguments
 	register_post_type( 'pieces', $args );
 
 }
