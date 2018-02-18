@@ -23,12 +23,10 @@ Text Domain: Vertigo
 /************************************************************/
 /**********************SLIDER FADE************************/
 /************************************************************/
-
 #carousel{
   position: absolute;
   top:0;
 }
-
 .carousel-fade .carousel-inner .item {
   	-webkit-transition-property: opacity;
   	transition-property: opacity;
