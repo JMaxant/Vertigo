@@ -1,5 +1,57 @@
 [
     {
+        "key": "group_5a888d5525969",
+        "title": "Liens évènements",
+        "fields": [
+            {
+                "key": "field_5a888d6f9bf22",
+                "label": "lien",
+                "name": "lien",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "pieces"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "id",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "event"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "event-recurring"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
         "key": "group_5a699f9ca30c9",
         "title": "Nous",
         "fields": [
@@ -643,7 +695,7 @@
                 "label": "Dates",
                 "name": "dates",
                 "type": "true_false",
-                "instructions": "Case à cocher pour afficher l'onglet \"Dates\" (si des dates sont enregistrées pour la pièce, elles s'afficheront)",
+                "instructions": "Cochez cette case pour afficher les dates prévues pour cette pièce et déja enregistrées dans les Evènements",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -663,7 +715,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "post"
+                    "value": "pieces"
                 }
             ]
         ],
@@ -733,7 +785,7 @@
                 {
                     "param": "page",
                     "operator": "==",
-                    "value": "77"
+                    "value": "15"
                 }
             ]
         ],
@@ -742,9 +794,7 @@
         "style": "default",
         "label_placement": "top",
         "instruction_placement": "label",
-        "hide_on_screen": [
-            "the_content"
-        ],
+        "hide_on_screen": "",
         "active": 1,
         "description": ""
     },
@@ -771,30 +821,6 @@
                 "layout": "table",
                 "button_label": "",
                 "sub_fields": [
-                    {
-                        "key": "field_5a69b3f498288",
-                        "label": "image",
-                        "name": "image",
-                        "type": "image",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "id",
-                        "preview_size": "thumbnail",
-                        "library": "all",
-                        "min_width": "",
-                        "min_height": "",
-                        "min_size": "",
-                        "max_width": "",
-                        "max_height": "",
-                        "max_size": "",
-                        "mime_types": ""
-                    },
                     {
                         "key": "field_5a69b47198289",
                         "label": "Titre",
@@ -850,9 +876,7 @@
         "style": "default",
         "label_placement": "top",
         "instruction_placement": "label",
-        "hide_on_screen": [
-            "the_content"
-        ],
+        "hide_on_screen": "",
         "active": 1,
         "description": ""
     }
