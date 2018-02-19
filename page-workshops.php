@@ -10,7 +10,7 @@ if(!empty(the_post_thumbnail())){ ?>
 	?>
 	</figure>
 <?php	} ?>
-<section id="workshop" class="container">
+<section id="workshops" class="container">
      <div class="row">
           <?php if(have_posts()){
 		while(have_posts()){
