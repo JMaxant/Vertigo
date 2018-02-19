@@ -33,11 +33,7 @@ function gv_setup(){
 	// AJOUT BALISE <TITLE>
 	add_theme_support('title-tag');
 	// AJOUT LOGO CUSTOM
-	function gv_custom_logo_setup() {
-		$logoDefaults=array('height' => 100,'width'=>400,'flex-height'=>true,'flex-width'=>true,'header-text'=>array('Le Groupe Vertigo', 'Le Groupe Vertigo, compagnie de théâtre'),
-		);
-		add_theme_support('custom-logo', $logoDefaults);
-	}
+	add_theme_support('custom-logo', array('height'=>100, 'width' =>400, 'flex-height'=>true, 'flex-width'=>true));
 	// RETRAIT N° VERSION WP
 	remove_action('wp_head', 'wp_generator');
 	 // RETRAIT GUILLEMETS A LA FRANCAISE
@@ -70,7 +66,7 @@ function formatHeure($heure){
 *$class=argument optionnel pour ajouter les classes au tableau (par défaut table col-sm-12)
 *$idp=argument optionnel, qui va comparer l'id du post courant à l'id trouvée dans le champ acf lien (qui renvoie de la page Agenda vers la single pièce) pour n'afficher que les posts de cette pièce
 */
-function gv_tabEvents($args, $headers, $contents, $idp=null, $class='table col-sm-12'){
+function gv_tabEvents($args, $headers, $contents,  $class='table col-sm-12',$idp=null){
 	if(class_exists('EM_Events')){
 		$events=EM_Events::get($args);
 		if(!empty($events)){
@@ -78,7 +74,8 @@ function gv_tabEvents($args, $headers, $contents, $idp=null, $class='table col-s
 			foreach($headers as $header){
 				$tableau.='<th>'.$header.'</th>';
 			}
-			if(isset($idp)){
+			if($idp){
+				$eventsSingle=[];
 				foreach($events as $event){
 					if($event->event_attributes['lien']==$idp){
 						$eventsSingle[]=$event;
@@ -89,24 +86,25 @@ function gv_tabEvents($args, $headers, $contents, $idp=null, $class='table col-s
 			foreach($events as $event){
 				$tableau.='<tr>';
 				foreach($contents as $key => $content){
+					$horslesmurs='<br/>'.$event->event_attributes['Hors_Les_Murs'];
 					switch ($content) {
 						case event_start_date:
-							$tableau.='<td>'.formatDate($event->$content).'</td>';
+							$tableau.='<td><p>'.formatDate($event->$content).'</p></td>';
 							break;
 						case location_id:
 							$lieu=new EM_Location($event->$content);
 							if(!empty($lieu->location_attribute['url'])){
-								$tableau.='<td><a href="'.$lieu->location_attribute['url'].'">'.mb_strtoupper($lieu->location_name).'</a></td>';
+								$tableau.='<td><p><a href="'.$lieu->location_attribute['url'].'">'.mb_strtoupper($lieu->location_name).'</a>'.$horslesmurs.'</p></td>';
 							}else{
-								$tableau.='<td>'.mb_strtoupper($lieu->location_name).'</td>';
+								$tableau.='<td><p>'.mb_strtoupper($lieu->location_name).$horslesmurs.'</p></td>';
 							}
-							$tableau.='<td>'.mb_strtoupper($lieu->location_town).'</td>';
+							$tableau.='<td><p>'.mb_strtoupper($lieu->location_town).'</p></td>';
 							break;
 						default:
 							if(!empty($event->event_attributes['lien'])){
-								$tableau.='<td><a href="'.get_permalink($event->event_attributes['lien']).'"/>'.mb_strtoupper($event->$content).'</a><em><br/>'.$event->event_attributes["Statut"].'</em></td>';
+								$tableau.='<td><p><a href="'.get_permalink($event->event_attributes['lien']).'"/>'.mb_strtoupper($event->$content).'</a><br/>'.$event->event_attributes['Statut'].'</p></td>';
 							}else{
-								$tableau.='<td>'.mb_strtoupper($event->$content).'<em><br/>'.$event->event_attributes["Statut"].'</em></td>';
+								$tableau.='<td><p>'.mb_strtoupper($event->$content).'<br/>'.$event->event_attributes["Statut"].'</p</td>';
 							break;
 							}
 					}
