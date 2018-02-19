@@ -576,6 +576,12 @@ padding:0 0 50px 0;
 #events a{
   text-decoration: none;
 }
+#events table p{
+	font-style: italic;
+}
+#events table p::first-line{
+	font-style:normal;
+}
 /*************WORKSHOPS************/
 #workshops{
      min-height: 72vh;
