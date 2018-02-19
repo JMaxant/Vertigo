@@ -44,7 +44,22 @@ function gv_setup(){
 	register_nav_menus( array( 'primary' => 'Principal', 'secondary' =>'Secondaire', 'footer' =>'Footer'));
 }
 add_action('after_setup_theme', 'gv_setup');
+/**************SIDEBAR - pour widget Newsletter section NOUS***********/
+add_action( 'widgets_init', 'gv_register_sidebars' );
 
+function gv_register_sidebars() {
+   	register_sidebar(
+	          array(
+	        	'id' => '',
+	        	'name' => __( 'Widgets Newsletter' ),
+	        	'description' => __( 'Sidebar créée pour l\'intégration du plugin MailJet' ),
+	        	'before_widget' => '<div id="%1$s" class="widget %2$s">',
+	        	'after_widget' => '</div>',
+	        	'before_title' => '<h3 class="widget-title">',
+	        	'after_title' => '</h3>'
+    		)
+	);
+}
 /************************FORMATAGE DATE EVENTS MANAGER***********************/
 /*Event Manager sort par défaut les dates en format YYYY/MM/DD, cette fonction a donc pour but de la reformater en JJ-mois-YYYY*/
 function formatDate($date){
