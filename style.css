@@ -106,7 +106,14 @@ h1,h2,h3,h4,h5,h6{
 .page-template-page-spectacle #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft, .error404 #topLeft{
 	background:rgba(0,0,0,0.85);
 }
-
+#topRight{
+     background: none;
+     box-shadow: none;
+}
+#topRight ul{
+     margin: auto;
+     float: unset !important;
+}
 .navbar{
   background: rgba(0,0,0,0.2);
   border-radius: 0;
@@ -575,15 +582,6 @@ padding:0 0 50px 0;
 }
 #events a{
   text-decoration: none;
-}
-#events table p{
-	font-style: italic;
-}
-#events table p::first-line{
-	font-style:normal;
-}
-#events .pastEvents{
-	font-size:0.8em;
 }
 /*************WORKSHOPS************/
 #workshops{
