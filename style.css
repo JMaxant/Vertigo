@@ -582,6 +582,9 @@ padding:0 0 50px 0;
 #events table p::first-line{
 	font-style:normal;
 }
+#events .pastEvents{
+	font-size:0.8em;
+}
 /*************WORKSHOPS************/
 #workshops{
      min-height: 72vh;
