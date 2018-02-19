@@ -27,20 +27,17 @@ Template Name: Events
 					<h2>RESIDENCES</h2>
 				<?php echo $residence; ?>
 				</article>
-		<?php } ?>
-          <?php
-          // FIXME:
-          // 	$args=array('scope'=>'past'); // Tableau secondaire : n'affiche que les pièces en résidence
-          // $headers=array('NOM', 'DATE', 'LIEU', 'VILLE');
-          // $contents=array('event_name', 'event_start_date','location_id');
-          // $pastEvents=gv_tabEvents($args, $headers,$contents);
-          // if(!empty($pastEvents)){?>
-               <!-- <article class="col-sm-12">
-                    <h2>Passés</h2> -->
-               <?php
-               // echo $pastEvents; ?>
-               <!-- </article> -->
-          <!-- <?php //} ?> -->
+		<?php }
+		          $args=array('scope'=>'past'); // Tableau secondaire : n'affiche que les pièces en résidence
+		          $headers=array('NOM', 'DATE', 'LIEU', 'VILLE');
+		          $contents=array('event_name', 'event_start_date','location_id');
+		          $pastEvents=gv_tabEvents($args, $headers,$contents,$class="table col-sm-12 pastEvents");
+		          if(!empty($pastEvents)){?>
+		          <article class="col-sm-12">
+		                   	<h2>Passés</h2>
+		               <?php echo $pastEvents; ?>
+		          </article>
+          <?php } ?>
      </section>
 </main>
 <?php get_footer();?>
