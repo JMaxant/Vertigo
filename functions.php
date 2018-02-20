@@ -14,7 +14,10 @@ function gv_scripts(){
 // CHARGEMENT JS
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'), GV_VERSION, true);
 	wp_enqueue_script('gv_slick', get_template_directory_uri().'/js/slick.min.js', array('jquery'), GV_VERSION, true);
+	wp_enqueue_script( 'gv_masonry', get_template_directory_uri(). '/js/masonry.min.js', array('jquery'), GV_VERSION, true);
+	wp_enqueue_script('gv_imagesLoaded', get_template_directory_uri().'/js/imagesLoaded.min.js', array('jquery'), GV_VERSION, true);
 	wp_enqueue_script('gv_custom_js', get_template_directory_uri().'/js/gv_script.js', array('jquery', 'bootstrap-js'), GV_VERSION, true);
+
 } //Fin fonction gv_scripts
 
 add_action('wp_enqueue_scripts', 'gv_scripts');
@@ -50,9 +53,8 @@ add_action( 'widgets_init', 'gv_register_sidebars' );
 function gv_register_sidebars() {
    	register_sidebar(
 	          array(
-	        	'id' => '',
-	        	'name' => __( 'Widgets Newsletter' ),
-	        	'description' => __( 'Sidebar créée pour l\'intégration du plugin MailJet' ),
+	        	'name' => ( 'Widgets Newsletter' ),
+	        	'description' => ( 'Sidebar créée pour l\'intégration du plugin MailJet' ),
 	        	'before_widget' => '<div id="%1$s" class="widget %2$s">',
 	        	'after_widget' => '</div>',
 	        	'before_title' => '<h3 class="widget-title">',
