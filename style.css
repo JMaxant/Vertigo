@@ -103,6 +103,7 @@ h1,h2,h3,h4,h5,h6{
 /***********************************************************/
 /*********STYLE NAVBAR TEMPLATE SPECTACLES-WORKSHOPS-AGENDA*********/
 /***********************************************************/
+
 .page-template-page-spectacle #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft, .error404 #topLeft{
 	background:rgba(0,0,0,0.85);
 }
@@ -240,13 +241,28 @@ iframe{
 	display: inline-block;
 	margin: 0 30px 20px 30px;
 }
-#pieces .container a{
-	font-size:2.3em;
+/*********MASONRY CSS // PAGE-SPECTACLES.PHP**********/
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
 }
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  	width: 350px;
+}
+
+
 /***********************************************************/
 /********************PIECES*******************************/
 /***********************************************************/
-
+#pieces .container a{
+	font-size:2.3em;
+}
 #pieces .nav li, #nous .nav li{
 	text-transform:uppercase;
 }
