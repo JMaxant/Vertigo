@@ -23,8 +23,8 @@ Template Name: Spectacles
 						</p>
 					</figcaption>
 				</figure>
-			</div>
 		<?php endwhile;?>
+			</div>
 		</div>
 <?php endif; ?>
 	</section>
