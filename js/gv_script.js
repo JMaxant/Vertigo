@@ -8,4 +8,15 @@ jQuery(document).ready(function(){
 		centerMode:true,
 		variableWidth:true
 	});
+	// init Masonry
+          var $grid = jQuery('.grid').masonry({
+            	itemSelector: '.grid-item',
+            	percentPosition: true,
+            	columnWidth: '.grid-sizer',
+            	gutter:30
+          });
+          // layout Masonry after each image loads
+          $grid.imagesLoaded().progress( function() {
+            	$grid.masonry();
+	});
 });
