@@ -13,8 +13,8 @@ Template Name: Spectacles
         if($pieces->have_posts()):?>
         		<div class="grid">
 			<div class="grid-sizer"></div> <!--CONTENEUR VIDE UTILISE PAR MASONRY JS-->
-			<div class="grid-item">
 	          <?php while($pieces->have_posts()): $pieces->the_post(); ?>
+			<div class="grid-item">
 		    		<figure class="effect-julia">
 					<a href="<?php the_permalink();?>" ><?php the_post_thumbnail('thumbSpectacles');?></a>
 					<figcaption>
@@ -23,8 +23,8 @@ Template Name: Spectacles
 						</p>
 					</figcaption>
 				</figure>
-		<?php endwhile;?>
 			</div>
+		<?php endwhile;?>
 		</div>
 <?php endif; ?>
 	</section>
