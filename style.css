@@ -104,7 +104,7 @@ h1,h2,h3,h4,h5,h6{
 /*********STYLE NAVBAR TEMPLATE SPECTACLES-WORKSHOPS-AGENDA*********/
 /***********************************************************/
 
-.page-template-page-spectacle #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft, .error404 #topLeft{
+.page-template-page-spectacle #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft, .error404 #topLef, .page-template-archives #topLeft, .page-template-page-workshops #topLeft{
 	background:rgba(0,0,0,0.85);
 }
 #topRight{
@@ -603,4 +603,60 @@ tr:hover{
      display: flex;
      justify-content: center;
      align-items: center;
+}
+/*MOFIFICAFION DE JUFIEN*/
+/***********************************************************/
+/*********************** DATES ***************************/
+/***********************************************************/
+#events{
+	padding: 0 5%;
+}
+#events article{
+padding:0 0 50px 0;
+}
+#events h2{
+	text-transform:uppercase;
+}
+tr th{
+	background:#929292;
+	color:#FFF;
+}
+.page-template tr td:nth-child(2), .single-pieces tr td:first-child{
+	color: #cb6828;
+}
+.table tr td{
+	border-top:none !important;
+}
+tr{
+  background:#fff;
+}
+tr:nth-child(odd){
+	background:#eeeeee;
+}
+tr:nth-child(even){
+	background:#fff;
+}
+tr td:last-child{
+	font-weight:900;
+}
+tr td{
+	font-weight: 700;
+	font-size: 1.1em;
+}
+.page-template-archives tr td{
+	font-weight: 700;
+	font-size: 0.9em;
+}
+tr:hover{
+	background: #b1ffff;
+}
+#events a{
+  text-decoration: none;
+}
+#events article:last-of-type p{
+	font-size: 1.1em;
+}
+#events article:last-of-type h3{
+	font-size: 1.6em;
+	text-transform: uppercase;
 }
