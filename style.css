@@ -398,17 +398,6 @@ display: none;
 /***********************************************************/
 /************HOVER SPECTACLES ************************/
 /***********************************************************/
-
-/* .grid {
-	position: relative;
-	clear: both;
-	margin: 0 auto;
-	padding: 1em 0 4em;
-	max-width: 1000px;
-	list-style: none;
-	text-align: center;
-} */
-
 /* Common style */
 .grid figure {
 	position: relative;
@@ -574,40 +563,35 @@ footer nav ul li a{
 #events{
 	padding: 0 5%;
 }
-
 #events article{
 padding:0 0 50px 0;
 }
-
 #events h2{
 	text-transform:uppercase;
 }
-
-#events tr th{
-	background:#323232;
+tr th{
+	background:#929292;
 	color:#FFF;
-	text-transform:uppercase;
+}
+.page-template tr td:nth-child(2), .single-pieces tr td:first-child{
+	color: #cb6828;
 }
 #events .table tr td{
 	border-top:none !important;
 }
-#events tr{
+tr{
   background:#fff;
 }
-#events tr:nth-child(odd){
+tr:nth-child(odd){
 	background:#eeeeee;
 }
 #events tr:nth-child(even){
 	background:#fff;
 }
-#events tr td:nth-child(3){
-	text-transform:uppercase;
-}
-#events tr td:nth-child(5){
+tr td:last-child{
 	font-weight:bold;
-	text-transform:uppercase;
 }
-#events tr:hover{
+tr:hover{
 	background: #b1ffff;
 }
 #events a{
