@@ -27,7 +27,7 @@ if(function_exists(add_image_size)){
 	add_image_size( 'headerPieces', 1920, 900, true); /* Taille personalisées pour les vignettes single_pièces */
 	add_image_size('carouselsingle', 300, 200, true); /* Taille personnalisée pour les carousels des single pièces = force la hauteur max à 200px */
 	add_image_size('thumbNous', 600, 400, true); /* Taille personnalisée pour les images de la page Nous */
-	add_image_size('logoNous', 300, 200, true); /* Taille personnalisée pour les LOGOS Partenaires de la page Nous */
+	add_image_size('logoNous', 250, 0, true); /* Taille personnalisée pour les LOGOS Partenaires de la page Nous */
 }
 /************SETUP UTILITAIRES****************/
 function gv_setup(){
@@ -49,18 +49,41 @@ function gv_setup(){
 add_action('after_setup_theme', 'gv_setup');
 /**************SIDEBAR - pour widget Newsletter section NOUS***********/
 add_action( 'widgets_init', 'gv_register_sidebars' );
-
 function gv_register_sidebars() {
    	register_sidebar(
 	          array(
-	        	'name' => ( 'Widgets Newsletter' ),
-	        	'description' => ( 'Sidebar créée pour l\'intégration du plugin MailJet' ),
-	        	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	        	'after_widget' => '</div>',
-	        	'before_title' => '<h3 class="widget-title">',
-	        	'after_title' => '</h3>'
+		        	'name' => ( 'Widgets Custom' ),
+			'id' =>'widgetNous',
+		        	'description' => ( 'Sidebar créée pour l\'intégration du plugin MailJet et Polylang' ),
+		        	'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		        	'after_widget' => '</div>',
+		        	'before_title' => '<h3 class="widget-title">',
+		        	'after_title' => '</h3>'
     		)
 	);
+	register_sidebar(
+		array(
+			'name' => ( 'Widgets footer' ),
+			'id' => 'widgetFooter',
+			'description' => ( 'Sidebar créée pour l\'intégration de widgets dans le footer' ),
+			'before_widget' => '<div id="widget-footer" class="widget-footer">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebar(
+		array(
+			'name' => ( 'Widgets header' ),
+			'id' => 'widgetHeader',
+			'description' => ( 'Sidebar créée pour l\'intégration de widgets dans le header' ),
+			'before_widget' => '<div id="widget-header" class="widget-header">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>'
+		)
+	);
+
 }
 /************************FORMATAGE DATE EVENTS MANAGER***********************/
 /*Event Manager sort par défaut les dates en format YYYY/MM/DD, cette fonction a donc pour but de la reformater en JJ-mois-YYYY*/
@@ -71,7 +94,7 @@ function formatDate($date){
 	$dateFormatee=$date[2].' '.$moisLettre[($date[1] - 1)].' '.$date[0];
 	return $dateFormatee;
 }
-function formatHeure($heure){
+function formatHeure($heure){ // Fonction utilisée pour formater les heures d'Event Manager : inusitée puisque Guillaume ne souhaite pas afficher les heures dans les tableaux, laissée pour utilisation ou référence ultèrieure
 	$heure=explode(':', $heure);
 	$heureFormatee=$heure[0].'h'.$heure[1];
 	return $heureFormatee;
@@ -86,6 +109,7 @@ function formatHeure($heure){
 function gv_tabEvents($args, $headers, $contents,  $class='table col-sm-12',$idp=null){
 	if(class_exists('EM_Events')){
 		$events=EM_Events::get($args);
+		// var_dump($events);
 		if(!empty($events)){
 			$tableau='<table class="'.$class.'">';
 			foreach($headers as $header){
@@ -164,10 +188,7 @@ function wpm_custom_post_type() {
 		'public'              => true,
 		'has_archive'         => true,
 		'rewrite'			  => array( 'slug' => 'pieces'),
-
 	);
 	register_post_type( 'pieces', $args );
-
 }
-
 add_action( 'init', 'wpm_custom_post_type', 0 );  ?>
