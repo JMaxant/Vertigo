@@ -312,16 +312,30 @@ iframe{
 }
 /**********CAROUSEL SINGLE************/
 #pieces .slick-arrow{
-     height:80%;
+     height:100%;
      transition: 0.5s all ease;
-     width:40px;
+     width:25px;
+}
+#pieces .slick-arrow::before{
+display: none;
 }
 #pieces .slick-arrow:hover{
      background: rgba(0,0,0,.1);
-     color:#000;
 }
-#pieces .slick-dots{
-     font-size: 2em;
+#pieces .slick-dots button{
+	background: #009999;
+	border-radius: 50%;
+	width: 5px;
+	height: 5px;
+}
+#pieces .slick-dots .slick-active button{
+	background: #000;
+}
+#pieces .slick-dots button::before{
+	display: none;
+}
+#pieces .slick-slide{
+	margin: 0 20px;
 }
 /***********************************************************/
 /*************************NOUS***************************/
