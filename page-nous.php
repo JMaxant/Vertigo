@@ -46,7 +46,8 @@ get_header();
             endif; ?>
         </article>
         <article class="tab-pane fade in" id="contacts" role="tabpanel">
-            <?php if( have_rows('contacts') ):
+          <?php
+	  if( have_rows('contacts') ):
                 while ( have_rows('contacts') ) : the_row(); ?>
                     <div><?php the_sub_field('contacts_liens'); ?></div>
                     <figure>
@@ -92,6 +93,9 @@ get_header();
                             </a>
                             <?php
                         }
+		    if(function_exists('dynamic_sidebar')){
+			    dynamic_sidebar( 'Widgets Custom' );
+		    }
                         ?>
                     </figure>
                 <?php endwhile;
