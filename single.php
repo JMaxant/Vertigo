@@ -62,11 +62,13 @@
 									}
 									the_sub_field('videos');
 								}
-						}else if($value[label]==="Dates"){
+						}else if($value[label]==="Dates"){ ?>
+								<h2><?php the_title(); ?></h2>
+								<?php
 								$args=array('post_type'=>'events', 'post_status'=>'publish');
-								$headers=array('NOM','DATE', 'LIEU', 'VILLE');
-								$contents=array('event_name','event_start_date', 'location_id');
-								$class='col-sm-12';
+								$headers=array('DATE', 'LIEU', 'VILLE');
+								$contents=array('event_start_date', 'location_id');
+								$class='table col-xs-12 col-sm-12';
 								$idp=get_the_id();
 								$events=gv_tabEvents($args, $headers, $contents, $class, $idp);
 								echo $events;
