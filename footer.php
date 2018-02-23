@@ -10,7 +10,7 @@
        		<nav id=footer-menu>
          			<ul>
 			          <li><a href="#mentions" data-toggle="modal">Mentions légales</a></li>
-			          <li><a href="#social" data-toggle="modal">Social networks</a></li>
+			          <li><a href="#social" data-toggle="modal">Contact</a></li>
 			          <li><a href="#apropos" data-toggle="modal">A propos</a></li>
          			</ul>
 		</nav>
