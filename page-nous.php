@@ -52,7 +52,7 @@ get_header();
                     <div><?php the_sub_field('contacts_liens'); ?></div>
                     <figure>
                         <?php $image = get_sub_field('contacts_logo');
-                                  $size = 'thumbNous';
+                                  $size = 'logoNous';
                         if($image) {
                             echo wp_get_attachment_image($image, $size);
                         } ?>
