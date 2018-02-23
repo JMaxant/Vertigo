@@ -87,14 +87,17 @@ h1,h2,h3,h4,h5,h6{
   width:100px;
   height:80px;
   position:absolute;
-  z-index:10;
+  z-index:50;
   top:0;
   left:55px;
+}
+.container-fluid{
+padding:0;
 }
 @media screen and (max-width: 750px) {
 	.custom-logo {
     position:absolute;
-    right:70px;
+    right:20px;
     left:auto;
 	}
 }
@@ -103,8 +106,10 @@ h1,h2,h3,h4,h5,h6{
 /***********************************************************/
 /*********STYLE NAVBAR TEMPLATE SPECTACLES-WORKSHOPS-AGENDA*********/
 /***********************************************************/
-
-.page-template-page-spectacle #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft, .error404 #topLef, .page-template-archives #topLeft, .page-template-page-workshops #topLeft{
+.page-template-page-spectacles nav.row, .page-template-page-nous nav.row, .page-template-page-events nav.row, .page-template-page-workshop nav.row, .pieces-template-single-piece nav.row{
+	margin:0;
+}
+.page-template-page-spectacles #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft, .error404 #topLeft{
 	background:rgba(0,0,0,0.85);
 }
 #topRight{
@@ -114,6 +119,14 @@ h1,h2,h3,h4,h5,h6{
 #topRight ul{
      margin: auto;
      float: unset !important;
+}
+button{
+     width:100%;
+}
+button.navbar-toggle{
+     background:rgba(0,0,0,0.5);
+     margin-top:0;
+     left:0;
 }
 .navbar{
   background: rgba(0,0,0,0.2);
@@ -189,7 +202,7 @@ h1,h2,h3,h4,h5,h6{
   right:0;
 }
 .navbar-toggle .icon-bar{
-  background: #009999;
+  background: #fff;
 }
 
 header{
@@ -243,19 +256,55 @@ iframe{
 }
 /*********MASONRY CSS // PAGE-SPECTACLES.PHP**********/
 /* clear fix */
-.grid:after {
+/* .grid:after {
   content: '';
   display: block;
   clear: both;
-}
+} */
 
 /* ---- .grid-item ---- */
 
 .grid-sizer,
 .grid-item {
-  	width: 350px;
+  	max-width: 350px;
 }
 
+@media screen and (max-width:400px) {
+     .grid-sizer,
+     .grid-item {
+       	max-width: 320px;
+     }
+}
+/* @media screen and (max-width:1199px) {
+     .grid{
+          left:10% !important;
+     }
+}
+@media screen and (max-width: 991px) {
+     .grid{
+          left:auto !important;
+     }
+     .grid-item{
+     margin:auto !important;
+     position:initial !important;
+     }
+}
+@media screen and (max-width: 480px) {
+     .grid-item{
+     margin:0 !important;
+     padding:0 !important;
+     }
+}
+@media screen and (max-width: 360px) {
+     #spectacles{
+     margin:0 !important;
+     padding:0 !important;
+     }
+     .col-sm-12{
+          margin:0;
+          padding:0;
+     }
+} */
 
 /***********************************************************/
 /********************PIECES*******************************/
@@ -312,30 +361,16 @@ iframe{
 }
 /**********CAROUSEL SINGLE************/
 #pieces .slick-arrow{
-     height:100%;
+     height:80%;
      transition: 0.5s all ease;
-     width:25px;
-}
-#pieces .slick-arrow::before{
-display: none;
+     width:40px;
 }
 #pieces .slick-arrow:hover{
      background: rgba(0,0,0,.1);
+     color:#000;
 }
-#pieces .slick-dots button{
-	background: #009999;
-	border-radius: 50%;
-	width: 5px;
-	height: 5px;
-}
-#pieces .slick-dots .slick-active button{
-	background: #000;
-}
-#pieces .slick-dots button::before{
-	display: none;
-}
-#pieces .slick-slide{
-	margin: 0 20px;
+#pieces .slick-dots{
+     font-size: 2em;
 }
 /***********************************************************/
 /*************************NOUS***************************/
@@ -345,6 +380,7 @@ display: none;
 }
 #nous .tab-content{
   padding: 0 15%;
+  margin: 0;
 }
 #nous p{
   line-height: 2em;
@@ -372,6 +408,18 @@ display: none;
 #nous #doucet figure{
 	padding-top:30px;
 }
+@media screen and (max-width: 750px) {
+	#compagnie img {
+    display:block;
+    margin:0;
+    max-width:100%;
+    height:auto;
+	}
+     #nous .tab-content{
+       padding: 0 5%;
+       margin: 0;
+     }
+}
 /***********************************************************/
 /************************ WORKSHOP ********/
 /***********************************************************/
@@ -398,6 +446,17 @@ display: none;
 /***********************************************************/
 /************HOVER SPECTACLES ************************/
 /***********************************************************/
+
+/* .grid {
+	position: relative;
+	clear: both;
+	margin: 0 auto;
+	padding: 1em 0 4em;
+	max-width: 1000px;
+	list-style: none;
+	text-align: center;
+} */
+
 /* Common style */
 .grid figure {
 	position: relative;
@@ -544,12 +603,11 @@ footer img{
 }
 footer nav ul{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   font-size:2em;
   text-transform: uppercase;
 }
 footer nav ul li{
-  padding: 0 30px;
   list-style: none;
 }
 footer nav ul li a{
@@ -557,54 +615,6 @@ footer nav ul li a{
     text-transform: uppercase;
     text-decoration:none;
 }
-/***********************************************************/
-/*********************** DATES ***************************/
-/***********************************************************/
-#events{
-	padding: 0 5%;
-}
-#events article{
-padding:0 0 50px 0;
-}
-#events h2{
-	text-transform:uppercase;
-}
-tr th{
-	background:#929292;
-	color:#FFF;
-}
-.page-template tr td:nth-child(2), .single-pieces tr td:first-child{
-	color: #cb6828;
-}
-#events .table tr td{
-	border-top:none !important;
-}
-tr{
-  background:#fff;
-}
-tr:nth-child(odd){
-	background:#eeeeee;
-}
-#events tr:nth-child(even){
-	background:#fff;
-}
-tr td:last-child{
-	font-weight:bold;
-}
-tr:hover{
-	background: #b1ffff;
-}
-#events a{
-  text-decoration: none;
-}
-/*************WORKSHOPS************/
-#workshops{
-     min-height: 72vh;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-}
-/*MOFIFICAFION DE JUFIEN*/
 /***********************************************************/
 /*********************** DATES ***************************/
 /***********************************************************/
@@ -659,4 +669,11 @@ tr:hover{
 #events article:last-of-type h3{
 	font-size: 1.6em;
 	text-transform: uppercase;
+}
+/*************WORKSHOPS************/
+#workshops{
+     min-height: 72vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }
