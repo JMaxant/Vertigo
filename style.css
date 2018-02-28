@@ -69,6 +69,19 @@ a.left, a.right{
 a.left:hover, a.right:hover{
 	opacity:0.5;
 }
+.home footer{
+     display: none;
+}
+@media screen and (max-width:480px){
+          .carousel-control.right{
+                    right:10px;
+                    background:transparent !important;
+          }
+          .carousel-control.left{
+                    left:10px;
+                    background:transparent !important;
+          }
+}
 /***********************************************************/
 /*********************FIN SLIDER**************************/
 /***********************************************************/
@@ -80,6 +93,9 @@ body{
 	  font-size: 0.62em;
     background:url('assets/brushed-alum.png');
 }
+ul{
+     list-style:none;
+}
 h1,h2,h3,h4,h5,h6{
   color: #009999;
 }
@@ -88,28 +104,78 @@ h1,h2,h3,h4,h5,h6{
   height:80px;
   position:absolute;
   z-index:50;
-  top:0;
+  top:1px;
   left:55px;
 }
 .container-fluid{
 padding:0;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 767px) {
 	.custom-logo {
     position:absolute;
     right:20px;
     left:auto;
+    top:0;
 	}
 }
+@media screen and (min-width:481px){
+     #mobile{
+          display:none;
+     }
+     #desktop{
+          display: block;
+    	  position: absolute;
+    	  top: 0px;
+     }
+}
+@media screen and (max-width:480px){
+     #carouselMobile img{
+               max-width:100%;
+     }
+     #desktop{
+          display:none;
+     }
+     #mobile{
+          display:block;
+	  position:absolute;
+	  top:80px;
+     }
+}
+
 /***********************************************************/
 /********************NAVBAR******************************/
 /***********************************************************/
 /*********STYLE NAVBAR TEMPLATE SPECTACLES-WORKSHOPS-AGENDA*********/
 /***********************************************************/
-.page-template-page-spectacles nav.row, .page-template-page-nous nav.row, .page-template-page-events nav.row, .page-template-page-workshop nav.row, .pieces-template-single-piece nav.row{
+#widget-header{
+	  position: absolute;
+    right: 40px;
+    z-index: 50;
+    font-size: 3.0em;
+		top:25px;
+}
+#widget-header ul{
+	display:flex;
+}
+#widget-header li{
+	padding: 0 8px;
+}
+#widget-header a{
+	text-decoration:none;
+	color:#fff;
+}
+@media screen and (max-width:767px){
+	#widget-header{
+		left: 70px;
+		right:auto;
+    		font-size: 2.5em;
+   		top: 30px;
+}
+}
+nav.row{
 	margin:0;
 }
-.page-template-page-spectacles #topLeft, .page-template-page-workshop #topLeft, .page-template-page-events #topLeft, .error404 #topLeft{
+.page-template-page-spectacles #topLeft, .page-template-page-workshops #topLeft, .page-template-page-events #topLeft,.page-template-archives #topLeft, .error404 #topLeft{
 	background:rgba(0,0,0,0.85);
 }
 #topRight{
@@ -122,9 +188,10 @@ padding:0;
 }
 button{
      width:100%;
+     height:80px;
 }
 button.navbar-toggle{
-     background:rgba(0,0,0,0.5);
+     background:rgba(0,0,0,0.85);
      margin-top:0;
      left:0;
 }
@@ -208,6 +275,10 @@ button.navbar-toggle{
 header{
   height:0;
 }
+body.single-pieces figure{
+     position:relative;
+     top:-1px;
+}
 #content p{
   font-size: 2em;
 }
@@ -237,9 +308,6 @@ header{
 	border: 0;
 	background: none;
 }
-.container a{
-	font-size: 1.1em;
-}
 article{
 	padding-top: 50px;
 	font-size: 3em;
@@ -253,6 +321,30 @@ iframe{
 #medias p img{
 	display: inline-block;
 	margin: 0 30px 20px 30px;
+}
+@media screen and (max-width:767px){
+     #topLeft{
+          background:rgba(0,0,0,0.8);
+     }
+     #topLeft.navbar-nav{
+          margin-top:0 ;
+     }
+     body.single-pieces figure{
+          position:relative;
+          padding-top:81px;
+     }
+     #menu-topleft{
+          padding-top:50px;
+     }
+     #topLeft .nav>li:first-child:after{
+       content: "";
+       width: 1px;
+       height: 1.5em;
+       background-color: #fff;
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+     }
 }
 /*********MASONRY CSS // PAGE-SPECTACLES.PHP**********/
 /* clear fix */
@@ -275,40 +367,16 @@ iframe{
        	max-width: 320px;
      }
 }
-/* @media screen and (max-width:1199px) {
-     .grid{
-          left:10% !important;
-     }
-}
-@media screen and (max-width: 991px) {
-     .grid{
-          left:auto !important;
-     }
-     .grid-item{
-     margin:auto !important;
-     position:initial !important;
-     }
-}
-@media screen and (max-width: 480px) {
-     .grid-item{
-     margin:0 !important;
-     padding:0 !important;
-     }
-}
-@media screen and (max-width: 360px) {
-     #spectacles{
-     margin:0 !important;
-     padding:0 !important;
-     }
-     .col-sm-12{
-          margin:0;
-          padding:0;
-     }
-} */
 
 /***********************************************************/
 /********************PIECES*******************************/
 /***********************************************************/
+#medias {
+          padding-top:40px;
+}
+#medias figure{
+          padding-top:0;
+}
 #pieces .container a{
 	font-size:2.3em;
 }
@@ -359,22 +427,104 @@ iframe{
 #pieces, #workshop, #nous{
   padding:0 0 50px 0;
 }
+@media screen and (max-width:767px){
+     #pieces h1{
+          font-size:5em;
+          padding:0 5%;
+     }
+}
+@media screen and (max-width:480px){
+     #pieces h1{
+          font-size:4em;
+          padding: 0 5%;
+     }
+     #pieces ul.nav{
+          font-size:1.7em;
+          padding-top:10px;
+     }
+     #pieces li a{
+          padding: 0 7px;
+     }
+}
 /**********CAROUSEL SINGLE************/
 #pieces .slick-arrow{
-     height:80%;
+     height:100%;
      transition: 0.5s all ease;
-     width:40px;
+     width:25px;
+}
+#pieces .slick-arrow::before{
+display: none;
 }
 #pieces .slick-arrow:hover{
      background: rgba(0,0,0,.1);
-     color:#000;
 }
-#pieces .slick-dots{
-     font-size: 2em;
+#pieces .slick-dots button{
+	background: #009999;
+	border-radius: 50%;
+	width: 5px;
+	height: 5px;
+}
+#pieces .slick-dots .slick-active button{
+	background: #000;
+}
+#pieces .slick-dots button::before{
+	display: none;
+}
+#pieces .slick-slide{
+	margin: 0 20px;
+}
+@media screen and (max-width:767px){
+     #pieces .row{
+       padding: 0 5%;
+       text-align: justify;
+       margin:0;
+     }
 }
 /***********************************************************/
 /*************************NOUS***************************/
 /***********************************************************/
+
+.subscribe-form input.mailjet-subscribe{
+	  border-radius: 0 !important;
+	  box-shadow: unset;
+	  border: 0;
+	  background: #009999;
+	  color: #fff;
+	  padding: 1px 5px;
+}
+
+#email{
+	  border: 1px solid #009999;
+	  font-size: 1em;
+	  background: aliceblue;
+	  transition: background 0.2s ease-in;
+}
+
+
+#email:focus{
+	  background:white;
+
+}
+
+#suivre img{
+
+	  transition:opacity 0.2s ease-in;
+
+}
+
+#suivre img:hover{
+
+	  opacity:0.7;
+
+}
+
+
+#a-la-une{
+  padding:0;
+  position:relative;
+  top:-1px;
+}
+
 #nous li:first-child a{
 	padding-left:0;
 }
@@ -389,13 +539,12 @@ iframe{
 #tabNav{
   padding: 0 15%;
 }
-#nous #compagnie img{
-	display:block;
-	margin:auto;
+#nous #compagnie figure{
+	text-align:center;
 }
-
-#nous #partenaires img{
+#nous #partenaires figure{
 	padding: 10px;
+	text-align:center;
 }
 #nous #partenaires img:last-child{
 	display:block;
@@ -408,16 +557,35 @@ iframe{
 #nous #doucet figure{
 	padding-top:30px;
 }
-@media screen and (max-width: 750px) {
-	#compagnie img {
-    display:block;
-    margin:0;
-    max-width:100%;
-    height:auto;
+@media screen and (max-width: 767px) {
+     #a-la-une{
+        position:relative;
+        padding-top:81px;
+   }
+	#compagnie img, #doucet img, #contacts figure {
+          text-align:center;
+         max-width:100%;
+         height:auto;
 	}
      #nous .tab-content{
        padding: 0 5%;
        margin: 0;
+     }
+     #tabNav{
+       padding: 0 5%;
+     }
+     #nous ul.nav{
+          font-size:2.3em;
+          padding-top:10px;
+     }
+     #nous li a{
+          padding: 0 7px;
+     }
+}
+@media screen and (max-width:480px) {
+     #nous ul.nav{
+          font-size:1.7em;
+          padding-top:10px;
      }
 }
 /***********************************************************/
@@ -439,24 +607,16 @@ iframe{
   padding-bottom: 50px;
 }
 
-#a-la-une{
-  padding:0;
-}
-
 /***********************************************************/
 /************HOVER SPECTACLES ************************/
 /***********************************************************/
-
-/* .grid {
+.grid {
 	position: relative;
 	clear: both;
 	margin: 0 auto;
-	padding: 1em 0 4em;
-	max-width: 1000px;
 	list-style: none;
 	text-align: center;
-} */
-
+}
 /* Common style */
 .grid figure {
 	position: relative;
@@ -466,7 +626,7 @@ iframe{
 	background: #3085a3;
 	text-align: center;
 	cursor: pointer;
-  padding:0;
+          padding:0;
 }
 
 .grid figure img {
@@ -474,7 +634,7 @@ iframe{
 	display: block;
 	min-height: 100%;
 	max-width: 100%;
-  height:100%;
+          height:100%;
 	opacity: 0.8;
 }
 
@@ -483,7 +643,6 @@ iframe{
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 1.25em;
-	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
@@ -505,10 +664,9 @@ iframe{
 /* For some effects it will show as a button */
 .grid figure figcaption > a {
 	z-index: 8;
-	text-indent: 200%;
-	white-space: nowrap;
-	font-size: 0;
-	opacity: 0;
+	text-indent: 0%;
+	font-size: 1em;
+	opacity: 1;
 }
 
 .grid figure h2 span {
@@ -526,7 +684,7 @@ iframe{
 
 }
 /* Media queries */
-@media screen and (max-width: 50em) {
+/* @media screen and (max-width: 50em) {
 	.content {
 		padding: 0 10px;
 		text-align: center;
@@ -537,7 +695,7 @@ iframe{
 		margin: 10px auto;
 		width: 100%;
 	}
-}
+} */
 figure.effect-julia {
 	background: #000;
   width: inherit;
@@ -556,7 +714,7 @@ figure.effect-julia figcaption {
 
 figure.effect-julia h2 {
   position: absolute;
-  font-size:3.2em;
+  font-size:2.7em;
   text-align:center;
   font-weight:bold;
   color:#fff;
@@ -594,26 +752,71 @@ figure.effect-julia:hover img {
 /***********************************************************/
 footer.container{
   background: #323232;
+  padding:0 15%;
   width:100%;
+  position: relative;
 }
 footer img{
   display:block;
-  margin:auto;
-  padding: 20px 0;
+  position:absolute;
+  width:90px;
+  bottom:0;
+  left:15%;
 }
 footer nav ul{
+  flex-wrap:wrap;
   display: flex;
-  justify-content: space-between;
-  font-size:2em;
+  height:66px;
+  justify-content: flex-end;
+  align-items:center;
+  font-size:2.3em;
   text-transform: uppercase;
 }
 footer nav ul li{
   list-style: none;
+  padding: 0 10px;
 }
 footer nav ul li a{
     color:#fff;
     text-transform: uppercase;
     text-decoration:none;
+}
+footer .modal-body{
+     height:250px;
+     padding: 25px;
+     overflow-y: auto;
+}
+footer .modal-dialog{
+     top:50%;
+     transform:translateY(-75%) !important;
+     font-size:2.5em;
+     text-align: justify;
+}
+footer .modal-content{
+     border-radius:0 !important;
+}
+footer button span{
+     float: right;
+     font-size: 1.2em;
+     color: #009999;
+}
+footer button.close{
+     height:40px;
+     width: 40px;
+}
+@media screen and (max-width:767px){
+     footer.container{
+       padding:0 5%;
+     }
+     footer img{
+          left:5%;
+     }
+}
+@media screen and (max-width:480px){
+     footer nav ul{
+       font-size:1.5em;
+       padding-left:40%;
+ }
 }
 /***********************************************************/
 /*********************** DATES ***************************/
@@ -622,7 +825,7 @@ footer nav ul li a{
 	padding: 0 5%;
 }
 #events article{
-padding:0 0 50px 0;
+padding:0 0 20px 0;
 }
 #events h2{
 	text-transform:uppercase;
@@ -651,11 +854,15 @@ tr td:last-child{
 }
 tr td{
 	font-weight: 700;
-	font-size: 1.1em;
+	font-size: 1em;
 }
 .page-template-archives tr td{
 	font-weight: 700;
 	font-size: 0.9em;
+}
+.page-template-archives section footer{
+     font-size: 2rem;
+     text-align: center;
 }
 tr:hover{
 	background: #b1ffff;
@@ -670,10 +877,34 @@ tr:hover{
 	font-size: 1.6em;
 	text-transform: uppercase;
 }
+@media screen and(max-width:480px){
+     table{
+	font-size:0.7em;
+     }
+}
 /*************WORKSHOPS************/
 #workshops{
-     min-height: 72vh;
+     min-height: 91vh;
      display: flex;
      justify-content: center;
      align-items: center;
+}
+/********DEBUG SLIDER SINGLE*/
+.slick-slide img{
+     min-width: 200px;
+}
+/**MEDIA QUERIES GENERAL**/
+@media screen and (max-width:480px){
+     article{
+          font-size:2.3em;
+     }
+     #events h2, #nous h2, #nous h3.widget-title, #nous h3, #pieces h2, #pieces h3{
+          font-size:20px !important;
+     }
+     #events h1, #events h3, #events h2{
+          font-size:20px !important;
+     }
+     #events article table.table{
+          font-size:0.6em;
+     }
 }
