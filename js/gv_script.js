@@ -6,7 +6,9 @@ jQuery(document).ready(function(){
 		speed:300,
 		slidesToShow:1,
 		centerMode:true,
-		variableWidth:true
+		variableWidth:true,
+		autoplay:true,
+		autoplaySpeed:4000
 	});
 	// init Masonry
           var $grid = jQuery('.grid').masonry({
@@ -19,4 +21,24 @@ jQuery(document).ready(function(){
           $grid.imagesLoaded().progress( function() {
             	$grid.masonry();
 	});
+			jQuery(document).bind('keyup', function(e) {
+			  if (e.keyCode==39) {
+				  jQuery('a.carousel-control.right').trigger('click');
+			  }   
+
+			  else if(e.keyCode==37){
+				  jQuery('a.carousel-control.left').trigger('click');
+			  }
+
+			});
+			jQuery(document).bind('keyup', function(e) {
+			  if (e.keyCode==39) {
+				  jQuery('button.slick-next').trigger('click');
+			  }   
+
+			  else if(e.keyCode==37){
+				  jQuery('button.slick-prev').trigger('click');
+			  }
+
+			});
 });
