@@ -19,8 +19,7 @@ Template Name: Spectacles
 					<a href="<?php the_permalink();?>" ><?php the_post_thumbnail('thumbSpectacles');?></a>
 					<figcaption>
 						<h2><?php the_title(); ?></h2>
-						<a href="<?php the_permalink(); ?>">p><?php the_excerpt(); ?></a>
-						</p>
+						<a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a>
 					</figcaption>
 				</figure>
 			</div>
