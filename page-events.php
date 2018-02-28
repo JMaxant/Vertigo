@@ -28,16 +28,19 @@ Template Name: Events
 				<?php echo $residence; ?>
 				</article>
 		<?php }
-		          $args=array('scope'=>'past'); // Tableau secondaire : n'affiche que les pièces en résidence
-		          $headers=array('NOM', 'DATE', 'LIEU', 'VILLE');
-		          $contents=array('event_name', 'event_start_date','location_id');
-		          $pastEvents=gv_tabEvents($args, $headers,$contents,$class="table col-sm-12 pastEvents");
-		          if(!empty($pastEvents)){?>
-		          <article class="col-sm-12">
-		                   	<h2>Passés</h2>
-		               <?php echo $pastEvents; ?>
-		          </article>
-          <?php } ?>
+			$req=new WP_Query();											 // récupération de l'url de la page des représentations passées pour le lien h3
+			$all=$req->query(array('post_type' =>'page', 'posts_per_page' => '-1'));
+			$id=get_the_id();
+			$links=get_page_children($id,$all);
+			foreach($links as $link)
+				if($link->post_name==='representations-passees'){
+					$archives=$link->guid;
+				}
+			?>
+		<article class="col-sm-12 text-center">
+			<h3>Représentations passées</h3>
+			<p>Vous pouvez retrouver ici <a href="<?php echo $archives; ?>">l'ensemble de nos tournées précédentes</a>.</p>
+		</article>
      </section>
 </main>
 <?php get_footer();?>
