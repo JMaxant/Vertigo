@@ -93,11 +93,11 @@ get_header();
                             </a>
                             <?php
                         }
-		    if(function_exists('dynamic_sidebar')){
-			    dynamic_sidebar( 'Widgets Custom' );
-		    }
                         ?>
                     </figure>
+                    <?php if(function_exists('dynamic_sidebar')){
+                         dynamic_sidebar( 'Widgets Custom' );
+                    } ?>
                 <?php endwhile;
             endif; ?>
         </article>
